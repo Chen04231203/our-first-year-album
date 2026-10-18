@@ -1,0 +1,5931 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7efe4">
+  <meta name="description" content="一本只属于我们的恋爱一周年回忆相册">
+  <meta name="robots" content="noindex, nofollow">
+  <title>我 &amp; 你 · 我们的第一年</title>
+  <style>
+    :root {
+      --paper: #f8f1e7;
+      --paper-deep: #eee0cf;
+      --cream: #fffaf3;
+      --ink: #352523;
+      --ink-soft: #77615b;
+      --line: rgba(89, 55, 49, 0.15);
+      --rose: #b95c5e;
+      --rose-deep: #7e3438;
+      --rose-pale: #e9c7c2;
+      --sage: #77826f;
+      --sage-pale: #d9ded2;
+      --gold: #b28a57;
+      --shadow: 0 22px 60px rgba(82, 48, 40, 0.13);
+      --serif: "Songti SC", "STSong", "Noto Serif SC", "SimSun", Georgia, serif;
+      --sans: "Avenir Next", "PingFang SC", "Microsoft YaHei", sans-serif;
+      --hand: "Kaiti SC", "STKaiti", "KaiTi", "FangSong", serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: clip;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 4%, rgba(224, 172, 163, 0.24), transparent 28rem),
+        radial-gradient(circle at 92% 22%, rgba(190, 199, 176, 0.28), transparent 30rem),
+        linear-gradient(180deg, #f9f2e8 0%, #f5ecdf 48%, #f8f2e9 100%);
+      font-family: var(--sans);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      color: var(--cream);
+      background: var(--rose);
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    button {
+      color: inherit;
+    }
+
+    button:focus-visible,
+    a:focus-visible,
+    label[for="photoInput"]:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible {
+      outline: 2px solid var(--rose);
+      outline-offset: 3px;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .site-header {
+      position: fixed;
+      z-index: 40;
+      top: 18px;
+      left: 50%;
+      width: min(1380px, calc(100% - 40px));
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 0 14px 0 20px;
+      border: 1px solid rgba(115, 77, 65, 0.12);
+      border-radius: 999px;
+      background: rgba(255, 250, 243, 0.95);
+      box-shadow: 0 12px 36px rgba(86, 56, 45, 0.07);
+      transform: translateX(-50%);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--ink);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff8ee;
+      background: var(--rose);
+      box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.2);
+      font-family: var(--serif);
+      font-size: 19px;
+    }
+
+    .brand-names {
+      font-family: var(--serif);
+      font-size: 17px;
+      letter-spacing: 0.09em;
+    }
+
+    .mini-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .brand-sub {
+      color: var(--ink-soft);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .main-nav a {
+      position: relative;
+      padding: 10px 15px;
+      border-radius: 999px;
+      color: var(--ink-soft);
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      transition: color 0.25s ease, background 0.25s ease;
+    }
+
+    .main-nav a:hover {
+      color: var(--rose-deep);
+      background: rgba(185, 92, 94, 0.08);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon-button,
+    .music-button {
+      display: inline-flex;
+      min-width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 13px;
+      border: 1px solid rgba(104, 67, 58, 0.12);
+      border-radius: 999px;
+      color: var(--ink-soft);
+      background: rgba(255, 255, 255, 0.35);
+      cursor: pointer;
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+    }
+
+    .icon-button:hover,
+    .music-button:hover {
+      color: var(--rose-deep);
+      background: rgba(185, 92, 94, 0.09);
+      transform: translateY(-1px);
+    }
+
+    .icon-button svg,
+    .music-button svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.7;
+    }
+
+    .music-label {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+    }
+
+    .music-bars {
+      display: inline-flex;
+      height: 16px;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .music-bars i {
+      width: 2px;
+      height: 5px;
+      border-radius: 4px;
+      background: currentColor;
+      transition: height 0.2s ease;
+    }
+
+    .music-button.is-playing {
+      color: var(--rose-deep);
+      background: rgba(185, 92, 94, 0.11);
+    }
+
+    .music-button.is-playing .music-bars i {
+      animation: musicBar 1.2s ease-in-out infinite;
+    }
+
+    .music-button.is-playing .music-bars i:nth-child(2) {
+      animation-delay: -0.3s;
+    }
+
+    .music-button.is-playing .music-bars i:nth-child(3) {
+      animation-delay: -0.6s;
+    }
+
+    .music-button.is-playing .music-bars i:nth-child(4) {
+      animation-delay: -0.15s;
+    }
+
+    @keyframes musicBar {
+      0%, 100% { height: 4px; }
+      50% { height: 15px; }
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero {
+      position: relative;
+      width: min(1380px, calc(100% - 60px));
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 150px 28px 90px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(420px, 0.95fr);
+      align-items: center;
+      gap: 60px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 14%;
+      left: -9%;
+      width: 30rem;
+      height: 30rem;
+      border-radius: 50%;
+      border: 1px solid rgba(154, 105, 90, 0.12);
+      box-shadow: 0 0 0 5rem rgba(255, 252, 245, 0.16), 0 0 0 10rem rgba(255, 252, 245, 0.1);
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 3;
+      max-width: 680px;
+      animation: heroIn 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    @keyframes heroIn {
+      from { opacity: 0; transform: translateY(26px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin: 0 0 28px;
+      color: var(--rose-deep);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 38px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    .eyebrow .eyebrow-date {
+      color: var(--ink-soft);
+      font-weight: 400;
+      letter-spacing: 0.12em;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(52px, 5.5vw, 84px);
+      font-weight: 500;
+      line-height: 1.12;
+      letter-spacing: -0.045em;
+    }
+
+    .hero h1 .title-line {
+      display: block;
+    }
+
+    .hero h1 .accent {
+      position: relative;
+      display: inline-block;
+      color: var(--rose);
+      font-style: italic;
+    }
+
+    .hero h1 .accent::after {
+      content: "";
+      position: absolute;
+      right: 0.05em;
+      bottom: -0.08em;
+      left: 0.08em;
+      height: 9px;
+      border-top: 2px solid rgba(185, 92, 94, 0.36);
+      border-radius: 50%;
+      transform: rotate(-1.5deg);
+    }
+
+    .hero-lede {
+      max-width: 510px;
+      margin: 28px 0 0;
+      color: var(--ink-soft);
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.9;
+      letter-spacing: 0.025em;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 13px;
+      margin-top: 34px;
+    }
+
+    .primary-button,
+    .ghost-button {
+      display: inline-flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      padding: 0 24px;
+      border-radius: 999px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+    }
+
+    .primary-button {
+      border: 1px solid var(--rose);
+      color: #fffaf5;
+      background: var(--rose);
+      box-shadow: 0 10px 24px rgba(185, 92, 94, 0.2);
+      font-size: 13px;
+      letter-spacing: 0.06em;
+    }
+
+    .primary-button:hover {
+      background: var(--rose-deep);
+      border-color: var(--rose-deep);
+      box-shadow: 0 14px 30px rgba(126, 52, 56, 0.24);
+      transform: translateY(-2px);
+    }
+
+    .ghost-button {
+      border: 1px solid rgba(87, 55, 49, 0.18);
+      color: var(--ink-soft);
+      background: rgba(255, 250, 243, 0.5);
+      font-size: 13px;
+      letter-spacing: 0.05em;
+    }
+
+    .ghost-button:hover {
+      color: var(--rose-deep);
+      background: rgba(255, 250, 243, 0.9);
+      transform: translateY(-2px);
+    }
+
+    .primary-button svg,
+    .ghost-button svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.8;
+    }
+
+    .hero-counter {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin-top: 44px;
+      padding-top: 25px;
+      border-top: 1px solid var(--line);
+      width: min(100%, 500px);
+    }
+
+    .counter-number {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      min-width: 120px;
+      color: var(--rose-deep);
+    }
+
+    .counter-number strong {
+      font-family: var(--serif);
+      font-size: 42px;
+      font-weight: 500;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .counter-number span {
+      font-family: var(--serif);
+      font-size: 14px;
+    }
+
+    .counter-detail {
+      display: grid;
+      gap: 4px;
+    }
+
+    .counter-detail strong {
+      color: var(--ink-soft);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.11em;
+    }
+
+    .counter-detail span {
+      color: var(--ink-soft);
+      font-family: var(--serif);
+      font-size: 13px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .hero-art {
+      position: relative;
+      min-height: 620px;
+      animation: artIn 1.25s 0.14s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    @keyframes artIn {
+      from { opacity: 0; transform: translateY(32px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .hero-orbit {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 540px;
+      height: 540px;
+      border: 1px solid rgba(133, 91, 78, 0.16);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .hero-orbit::before,
+    .hero-orbit::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    .hero-orbit::before {
+      inset: 50px;
+      border: 1px dashed rgba(133, 91, 78, 0.13);
+    }
+
+    .hero-orbit::after {
+      top: 42px;
+      right: 80px;
+      width: 10px;
+      height: 10px;
+      background: var(--gold);
+      box-shadow: 0 0 0 8px rgba(178, 138, 87, 0.08);
+    }
+
+    .branch-ornament {
+      position: absolute;
+      z-index: 0;
+      top: -25px;
+      right: -35px;
+      width: 210px;
+      opacity: 0.58;
+      transform: rotate(7deg);
+    }
+
+    .collage {
+      position: absolute;
+      z-index: 2;
+      inset: 10px 10px 0;
+    }
+
+    .photo-slot {
+      position: absolute;
+      margin: 0;
+      padding: 11px 11px 46px;
+      border-radius: 3px;
+      background: #fffaf2;
+      box-shadow: 0 24px 55px rgba(73, 43, 35, 0.17);
+      transform-origin: 50% 90%;
+      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.55s ease;
+    }
+
+    .photo-slot::after {
+      content: attr(data-caption);
+      position: absolute;
+      right: 16px;
+      bottom: 14px;
+      left: 16px;
+      overflow: hidden;
+      color: #69534b;
+      font-family: var(--hand);
+      font-size: 13px;
+      line-height: 1.15;
+      text-align: center;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .photo-slot:hover {
+      z-index: 5;
+      box-shadow: 0 32px 70px rgba(73, 43, 35, 0.22);
+      transform: rotate(0deg) translateY(-7px) scale(1.015);
+    }
+
+    .slot-one {
+      z-index: 1;
+      top: 102px;
+      left: -6px;
+      width: 264px;
+      height: 354px;
+      transform: rotate(-7.5deg);
+    }
+
+    .slot-two {
+      z-index: 3;
+      top: 18px;
+      right: 18px;
+      width: 300px;
+      height: 405px;
+      transform: rotate(4.5deg);
+    }
+
+    .slot-three {
+      z-index: 2;
+      right: 68px;
+      bottom: 10px;
+      width: 250px;
+      height: 325px;
+      transform: rotate(-2.5deg);
+    }
+
+    .slot-image {
+      position: relative;
+      width: 100%;
+      height: calc(100% - 0px);
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 28% 24%, rgba(255, 255, 255, 0.82), transparent 24%),
+        linear-gradient(145deg, #e8c8ba 0%, #cfa39b 44%, #8e8f79 100%);
+    }
+
+    .slot-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .slot-two .slot-image {
+      background:
+        radial-gradient(circle at 72% 18%, rgba(255, 248, 216, 0.92), transparent 22%),
+        linear-gradient(165deg, #cfdbd5 0%, #e8b8a8 54%, #b66e63 100%);
+    }
+
+    .slot-three .slot-image {
+      background:
+        radial-gradient(circle at 30% 18%, rgba(255, 249, 228, 0.9), transparent 24%),
+        linear-gradient(155deg, #d7d5bd 0%, #c3c7a9 46%, #88a09a 100%);
+    }
+
+    .placeholder-art {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      color: rgba(74, 49, 44, 0.62);
+      text-align: center;
+    }
+
+    .placeholder-art svg {
+      width: 58%;
+      max-width: 150px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 0.9;
+    }
+
+    .placeholder-art span {
+      margin-top: 10px;
+      font-family: var(--hand);
+      font-size: 14px;
+      letter-spacing: 0.12em;
+    }
+
+    .tape {
+      position: absolute;
+      z-index: 5;
+      top: -10px;
+      left: 50%;
+      width: 72px;
+      height: 25px;
+      background: rgba(229, 204, 158, 0.62);
+      box-shadow: 0 2px 8px rgba(90, 62, 44, 0.08);
+      transform: translateX(-50%) rotate(-2deg);
+      clip-path: polygon(2% 0, 98% 1%, 100% 97%, 0 100%);
+    }
+
+    .hover-note {
+      position: absolute;
+      z-index: 5;
+      top: 55%;
+      left: -62px;
+      padding: 8px 13px;
+      border: 1px solid rgba(96, 63, 54, 0.18);
+      border-radius: 999px;
+      color: var(--ink-soft);
+      background: rgba(255, 250, 243, 0.82);
+      box-shadow: 0 8px 20px rgba(91, 57, 47, 0.08);
+      font-family: var(--hand);
+      font-size: 12px;
+      transform: rotate(-7deg);
+    }
+
+    .anniversary-seal {
+      position: absolute;
+      z-index: 8;
+      right: -23px;
+      bottom: 78px;
+      display: grid;
+      width: 124px;
+      height: 124px;
+      place-items: center;
+      border: 1px solid rgba(126, 52, 56, 0.34);
+      border-radius: 50%;
+      color: var(--rose-deep);
+      background: rgba(250, 239, 225, 0.93);
+      box-shadow: 0 12px 35px rgba(87, 51, 42, 0.13);
+      text-align: center;
+      transform: rotate(7deg);
+    }
+
+    .anniversary-seal::before {
+      content: "";
+      position: absolute;
+      inset: 7px;
+      border: 1px dashed rgba(126, 52, 56, 0.3);
+      border-radius: 50%;
+    }
+
+    .anniversary-seal strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 27px;
+      font-weight: 500;
+      line-height: 1.05;
+    }
+
+    .anniversary-seal span {
+      display: block;
+      margin-top: 5px;
+      font-size: 8px;
+      letter-spacing: 0.2em;
+    }
+
+    .hero-note {
+      position: absolute;
+      z-index: 6;
+      bottom: 24px;
+      left: -22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink-soft);
+      font-family: var(--hand);
+      font-size: 12px;
+      writing-mode: horizontal-tb;
+      transform: rotate(-3deg);
+    }
+
+    .hero-note::before {
+      content: "";
+      width: 44px;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .heart-hero {
+      display: grid;
+      min-height: 620px;
+      place-items: center;
+      isolation: isolate;
+    }
+
+    .heart-hero::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 50%;
+      left: 50%;
+      width: 92%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(226, 176, 165, 0.2), rgba(255, 250, 243, 0) 68%);
+      transform: translate(-50%, -50%);
+    }
+
+    .heart-collage {
+      position: relative;
+      width: min(100%, 620px);
+      aspect-ratio: 1;
+      margin: 0 auto;
+    }
+
+    .heart-backdrop {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      pointer-events: none;
+    }
+
+    .heart-outline {
+      position: absolute;
+      z-index: 35;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      pointer-events: none;
+    }
+
+    .heart-photos {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .heart-photo {
+      position: absolute;
+      top: var(--y);
+      left: var(--x);
+      z-index: var(--z);
+      display: flex;
+      width: var(--w);
+      aspect-ratio: 0.82;
+      flex-direction: column;
+      padding: 5px 5px 3px;
+      border: 1px solid rgba(100, 64, 53, 0.09);
+      border-radius: 4px;
+      background: #fffaf3;
+      box-shadow: 0 9px 20px rgba(75, 43, 34, 0.13);
+      cursor: pointer;
+      pointer-events: auto;
+      transform: translate(-50%, -50%) rotate(var(--r)) translateZ(0);
+      transform-origin: 50% 55%;
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .heart-photo:hover,
+    .heart-photo:focus-visible {
+      z-index: 40;
+      box-shadow: 0 18px 34px rgba(75, 43, 34, 0.2);
+      transform: translate(-50%, -50%) rotate(0deg) translateZ(0) scale(1.08);
+    }
+
+    .heart-photo-image {
+      position: relative;
+      display: grid;
+      min-height: 0;
+      flex: 1;
+      place-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 31% 24%, rgba(255, 255, 255, 0.88), transparent 26%),
+        linear-gradient(145deg, #e8c9bd, #bd9991 48%, #89917d);
+    }
+
+    .heart-photo-image.ph-1 {
+      background:
+        radial-gradient(circle at 70% 22%, rgba(255, 247, 218, 0.92), transparent 25%),
+        linear-gradient(155deg, #d7ddd4, #e5b8aa 54%, #ad6b65);
+    }
+
+    .heart-photo-image.ph-2 {
+      background:
+        radial-gradient(circle at 35% 24%, rgba(255, 250, 230, 0.92), transparent 24%),
+        linear-gradient(150deg, #d6d6c1, #b4bda9 50%, #78948d);
+    }
+
+    .heart-photo-image.ph-3 {
+      background:
+        radial-gradient(circle at 66% 20%, rgba(255, 244, 213, 0.9), transparent 26%),
+        linear-gradient(155deg, #ded4c5, #c6ae9d 48%, #98786f);
+    }
+
+    .heart-photo-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .heart-empty-mark {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 1px solid rgba(89, 57, 49, 0.25);
+      border-radius: 50%;
+      color: rgba(91, 55, 49, 0.58);
+      font-family: var(--serif);
+      font-size: 19px;
+      background: rgba(255, 250, 243, 0.24);
+    }
+
+    .heart-photo-caption {
+      display: block;
+      height: 18px;
+      flex: 0 0 18px;
+      overflow: hidden;
+      padding-top: 4px;
+      color: #735b53;
+      font-family: var(--hand);
+      font-size: 8px;
+      line-height: 14px;
+      text-align: center;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .heart-photo-empty .heart-photo-caption {
+      color: rgba(107, 78, 69, 0.58);
+    }
+
+    .heart-ribbon {
+      position: absolute;
+      z-index: 45;
+      bottom: 3px;
+      left: 50%;
+      display: inline-flex;
+      min-height: 37px;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 14px;
+      border: 1px solid rgba(99, 61, 53, 0.13);
+      border-radius: 999px;
+      color: var(--ink-soft);
+      background: rgba(255, 250, 243, 0.96);
+      box-shadow: 0 8px 22px rgba(76, 44, 36, 0.1);
+      font-size: 9px;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      cursor: pointer;
+      transform: translateX(-50%);
+    }
+
+    .heart-ribbon:hover {
+      color: var(--rose-deep);
+      background: #fffdf8;
+    }
+
+    .heart-ribbon svg {
+      width: 14px;
+      height: 14px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.6;
+    }
+
+    .heart-hero .anniversary-seal {
+      right: 5px;
+      bottom: 30px;
+    }
+
+    .stats-strip {
+      position: relative;
+      z-index: 5;
+      display: grid;
+      width: min(1260px, calc(100% - 80px));
+      grid-template-columns: repeat(4, 1fr);
+      margin: 0 auto 116px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .stat {
+      position: relative;
+      display: flex;
+      min-height: 116px;
+      align-items: center;
+      gap: 15px;
+      padding: 25px 30px;
+    }
+
+    .stat + .stat::before {
+      content: "";
+      position: absolute;
+      top: 30px;
+      bottom: 30px;
+      left: 0;
+      width: 1px;
+      background: var(--line);
+    }
+
+    .stat-icon {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      flex: 0 0 auto;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--rose-deep);
+      background: rgba(185, 92, 94, 0.08);
+    }
+
+    .stat-icon svg {
+      width: 19px;
+      height: 19px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.5;
+    }
+
+    .stat-copy {
+      display: grid;
+      gap: 5px;
+    }
+
+    .stat-copy strong {
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 500;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .stat-copy span {
+      color: var(--ink-soft);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+    }
+
+    .section {
+      width: min(1260px, calc(100% - 80px));
+      margin: 0 auto;
+      padding: 0 0 128px;
+      scroll-margin-top: 112px;
+      content-visibility: auto;
+      contain-intrinsic-size: auto 900px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 38px;
+    }
+
+    .section-kicker {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+      color: var(--rose);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+
+    .section-kicker::before {
+      content: "♡";
+      display: grid;
+      width: 24px;
+      height: 24px;
+      place-items: center;
+      border: 1px solid rgba(185, 92, 94, 0.24);
+      border-radius: 50%;
+      font-family: var(--serif);
+      font-size: 11px;
+      font-weight: 400;
+    }
+
+    .section-title {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(36px, 4vw, 55px);
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -0.035em;
+    }
+
+    .section-title em {
+      color: var(--rose);
+      font-style: italic;
+    }
+
+    .section-description {
+      max-width: 440px;
+      margin: 0 0 5px;
+      color: var(--ink-soft);
+      font-family: var(--serif);
+      font-size: 14px;
+      line-height: 1.8;
+      text-align: right;
+    }
+
+    .gallery-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 27px;
+      padding: 12px 13px;
+      border: 1px solid rgba(91, 58, 50, 0.1);
+      border-radius: 18px;
+      background: rgba(255, 250, 243, 0.58);
+    }
+
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .filter-chip {
+      display: inline-flex;
+      height: 36px;
+      align-items: center;
+      gap: 7px;
+      padding: 0 14px;
+      border: 0;
+      border-radius: 999px;
+      color: var(--ink-soft);
+      background: transparent;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    .filter-chip span {
+      opacity: 0.6;
+      font-size: 9px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .filter-chip:hover {
+      color: var(--rose-deep);
+    }
+
+    .filter-chip.is-active {
+      color: #fff9f2;
+      background: var(--rose);
+    }
+
+    .gallery-tools {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tool-select {
+      height: 36px;
+      padding: 0 30px 0 12px;
+      border: 1px solid rgba(91, 58, 50, 0.11);
+      border-radius: 999px;
+      color: var(--ink-soft);
+      background-color: rgba(255, 255, 255, 0.48);
+      font-size: 10px;
+      cursor: pointer;
+    }
+
+    .view-toggle {
+      display: inline-flex;
+      padding: 3px;
+      border: 1px solid rgba(91, 58, 50, 0.11);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.36);
+    }
+
+    .view-toggle button {
+      display: grid;
+      width: 29px;
+      height: 29px;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      color: var(--ink-soft);
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .view-toggle button.is-active {
+      color: var(--rose-deep);
+      background: rgba(255, 250, 243, 0.95);
+      box-shadow: 0 2px 7px rgba(85, 52, 44, 0.1);
+    }
+
+    .view-toggle svg {
+      width: 14px;
+      height: 14px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.5;
+    }
+
+    .toolbar-upload {
+      display: inline-flex;
+      height: 36px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 14px;
+      border: 0;
+      border-radius: 999px;
+      color: #fff9f2;
+      background: var(--ink);
+      font-size: 10px;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .toolbar-upload:hover {
+      background: var(--rose-deep);
+      transform: translateY(-1px);
+    }
+
+    .random-button {
+      display: inline-flex;
+      height: 36px;
+      align-items: center;
+      gap: 7px;
+      padding: 0 13px;
+      border: 1px solid rgba(91, 58, 50, 0.11);
+      border-radius: 999px;
+      color: var(--ink-soft);
+      background: rgba(255, 255, 255, 0.4);
+      font-size: 10px;
+      cursor: pointer;
+    }
+
+    .random-button:hover {
+      color: var(--rose-deep);
+    }
+
+    .random-button svg {
+      width: 14px;
+      height: 14px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.6;
+    }
+
+    .gallery {
+      position: relative;
+    }
+
+    .load-more {
+      display: flex;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      margin: 16px auto 0;
+      padding: 0 22px;
+      border: 1px solid rgba(102, 65, 56, 0.16);
+      border-radius: 999px;
+      color: var(--ink-soft);
+      background: rgba(255, 250, 243, 0.72);
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+    }
+
+    .load-more:hover {
+      color: var(--rose-deep);
+      background: var(--cream);
+    }
+
+    .gallery.masonry {
+      columns: 3 280px;
+      column-gap: 26px;
+    }
+
+    .photo-card {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      margin: 0 0 28px;
+      padding: 11px 11px 17px;
+      break-inside: avoid;
+      border: 1px solid rgba(87, 54, 47, 0.08);
+      border-radius: 4px;
+      background: #fffaf3;
+      box-shadow: 0 12px 35px rgba(79, 48, 39, 0.08);
+      transform: rotate(var(--tilt, 0deg));
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
+    }
+
+    .photo-card:hover {
+      z-index: 3;
+      box-shadow: 0 24px 55px rgba(79, 48, 39, 0.14);
+      transform: rotate(0deg) translateY(-6px);
+    }
+
+    .photo-open {
+      position: relative;
+      display: block;
+      width: 100%;
+      padding: 0;
+      overflow: hidden;
+      border: 0;
+      border-radius: 1px;
+      background: var(--paper-deep);
+      cursor: zoom-in;
+    }
+
+    .photo-open::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.19) 44%, transparent 68%);
+      opacity: 0;
+      transform: translateX(-85%);
+      transition: opacity 0.35s ease;
+    }
+
+    .photo-card:hover .photo-open::after {
+      opacity: 1;
+      animation: photoSheen 1.2s ease;
+    }
+
+    @keyframes photoSheen {
+      to { transform: translateX(85%); }
+    }
+
+    .photo-open img {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: var(--paper-deep);
+      transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .photo-card:hover .photo-open img {
+      transform: scale(1.02);
+    }
+
+    .photo-caption-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 13px 4px 0;
+    }
+
+    .photo-caption {
+      min-width: 0;
+      margin: 0;
+      color: #5d4842;
+      font-family: var(--hand);
+      font-size: 15px;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+
+    .photo-caption.is-empty {
+      color: #aa9389;
+    }
+
+    .photo-date {
+      flex: 0 0 auto;
+      padding-top: 4px;
+      color: #9d857c;
+      font-family: var(--serif);
+      font-size: 9px;
+      letter-spacing: 0.03em;
+    }
+
+    .card-favorite {
+      position: absolute;
+      z-index: 4;
+      top: 19px;
+      right: 19px;
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      color: #fff9f2;
+      background: rgba(54, 37, 34, 0.25);
+      opacity: 0;
+      cursor: pointer;
+      transition: opacity 0.25s ease, background 0.25s ease, transform 0.25s ease;
+    }
+
+    .photo-card:hover .card-favorite,
+    .card-favorite.is-favorite {
+      opacity: 1;
+    }
+
+    .card-favorite:hover {
+      background: rgba(185, 92, 94, 0.92);
+      transform: scale(1.08);
+    }
+
+    .card-favorite svg {
+      width: 16px;
+      height: 16px;
+      fill: transparent;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.7;
+    }
+
+    .card-favorite.is-favorite {
+      color: #fff8ee;
+      background: var(--rose);
+    }
+
+    .card-favorite.is-favorite svg {
+      fill: currentColor;
+    }
+
+    .gallery.film {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(270px, 31vw);
+      gap: 22px;
+      overflow-x: auto;
+      padding: 8px 4px 28px;
+      scroll-snap-type: x mandatory;
+      scrollbar-color: rgba(126, 52, 56, 0.26) transparent;
+    }
+
+    .gallery.film .photo-card {
+      display: block;
+      margin: 0;
+      scroll-snap-align: start;
+    }
+
+    .empty-gallery,
+    .filtered-empty {
+      position: relative;
+      display: grid;
+      min-height: 430px;
+      place-items: center;
+      overflow: hidden;
+      border: 1px dashed rgba(113, 74, 62, 0.2);
+      border-radius: 26px;
+      background:
+        linear-gradient(rgba(255, 250, 243, 0.52), rgba(255, 250, 243, 0.52)),
+        repeating-linear-gradient(0deg, transparent 0 31px, rgba(121, 84, 67, 0.05) 31px 32px);
+    }
+
+    .empty-gallery::before,
+    .empty-gallery::after {
+      content: "";
+      position: absolute;
+      width: 270px;
+      height: 270px;
+      border: 1px solid rgba(163, 106, 88, 0.12);
+      border-radius: 50%;
+    }
+
+    .empty-gallery::before {
+      top: -130px;
+      left: -100px;
+    }
+
+    .empty-gallery::after {
+      right: -130px;
+      bottom: -160px;
+    }
+
+    .empty-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      max-width: 460px;
+      justify-items: center;
+      padding: 45px 28px;
+      text-align: center;
+    }
+
+    .empty-illustration {
+      position: relative;
+      width: 174px;
+      height: 137px;
+      margin-bottom: 25px;
+    }
+
+    .empty-frame {
+      position: absolute;
+      top: 7px;
+      left: 28px;
+      width: 118px;
+      height: 111px;
+      padding: 7px 7px 24px;
+      border: 1px solid rgba(114, 74, 62, 0.12);
+      background: #fffaf2;
+      box-shadow: 0 13px 30px rgba(81, 47, 39, 0.1);
+      transform: rotate(-6deg);
+    }
+
+    .empty-frame:nth-child(2) {
+      top: 18px;
+      left: 50px;
+      transform: rotate(5deg);
+    }
+
+    .empty-frame-inner {
+      width: 100%;
+      height: 100%;
+      background:
+        linear-gradient(165deg, rgba(232, 198, 183, 0.85), rgba(210, 214, 196, 0.8)),
+        repeating-linear-gradient(45deg, transparent 0 8px, rgba(255, 255, 255, 0.13) 8px 9px);
+    }
+
+    .empty-heart {
+      position: absolute;
+      z-index: 4;
+      right: 11px;
+      bottom: 12px;
+      display: grid;
+      width: 48px;
+      height: 48px;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--rose);
+      background: var(--cream);
+      box-shadow: 0 8px 20px rgba(88, 49, 42, 0.12);
+      font-family: var(--serif);
+      font-size: 22px;
+    }
+
+    .empty-content h3 {
+      margin: 0 0 10px;
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    .empty-content p {
+      margin: 0 0 24px;
+      color: var(--ink-soft);
+      font-family: var(--serif);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .filtered-empty {
+      min-height: 260px;
+    }
+
+    .filtered-empty p {
+      margin: 0 0 18px;
+      color: var(--ink-soft);
+      font-family: var(--serif);
+      font-size: 15px;
+    }
+
+    .timeline-section {
+      padding-top: 22px;
+    }
+
+    .timeline-shell {
+      position: relative;
+      padding: 46px 0 5px;
+    }
+
+    .timeline-shell::before {
+      content: "";
+      position: absolute;
+      top: 71px;
+      right: 40px;
+      left: 40px;
+      border-top: 1px dashed rgba(126, 78, 64, 0.22);
+    }
+
+    .timeline-track {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(230px, 1fr);
+      gap: 20px;
+      overflow-x: auto;
+      padding: 0 20px 25px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(126, 52, 56, 0.22) transparent;
+    }
+
+    .timeline-card {
+      position: relative;
+      min-height: 215px;
+      padding: 31px 25px 24px;
+      border: 1px solid rgba(97, 61, 52, 0.1);
+      border-radius: 18px;
+      background: rgba(255, 250, 242, 0.64);
+      transition: transform 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .timeline-card:hover {
+      background: rgba(255, 250, 242, 0.94);
+      box-shadow: 0 18px 40px rgba(82, 48, 39, 0.08);
+      transform: translateY(-4px);
+    }
+
+    .timeline-card::before {
+      content: "";
+      position: absolute;
+      top: -39px;
+      left: 50%;
+      width: 9px;
+      height: 9px;
+      border: 3px solid var(--paper);
+      border-radius: 50%;
+      background: var(--rose);
+      box-shadow: 0 0 0 1px rgba(126, 52, 56, 0.28);
+      transform: translateX(-50%);
+    }
+
+    .timeline-card.is-future::before {
+      background: var(--gold);
+    }
+
+    .timeline-date {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 19px;
+      color: var(--rose);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .timeline-date::before {
+      content: "";
+      width: 18px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    .timeline-card h3 {
+      margin: 0 0 12px;
+      font-family: var(--serif);
+      font-size: 23px;
+      font-weight: 500;
+    }
+
+    .timeline-card p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-family: var(--serif);
+      font-size: 13px;
+      line-height: 1.85;
+    }
+
+    .timeline-delete {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      display: grid;
+      width: 27px;
+      height: 27px;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      color: var(--ink-soft);
+      background: transparent;
+      opacity: 0;
+      cursor: pointer;
+      transition: opacity 0.2s ease, background 0.2s ease;
+    }
+
+    .timeline-card:hover .timeline-delete {
+      opacity: 1;
+    }
+
+    .timeline-delete:hover {
+      color: var(--rose-deep);
+      background: rgba(185, 92, 94, 0.09);
+    }
+
+    .timeline-delete svg {
+      width: 13px;
+      height: 13px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.5;
+    }
+
+    .add-milestone {
+      position: relative;
+      display: grid;
+      min-height: 215px;
+      place-items: center;
+      border: 1px dashed rgba(100, 64, 54, 0.22);
+      border-radius: 18px;
+      color: var(--ink-soft);
+      background: transparent;
+      cursor: pointer;
+      transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+    }
+
+    .add-milestone::before {
+      content: "";
+      position: absolute;
+      top: -39px;
+      left: 50%;
+      width: 9px;
+      height: 9px;
+      border: 3px solid var(--paper);
+      border-radius: 50%;
+      background: var(--paper-deep);
+      box-shadow: 0 0 0 1px rgba(126, 52, 56, 0.18);
+      transform: translateX(-50%);
+    }
+
+    .add-milestone:hover {
+      border-color: rgba(185, 92, 94, 0.55);
+      color: var(--rose-deep);
+      background: rgba(255, 250, 242, 0.45);
+    }
+
+    .add-milestone span {
+      display: grid;
+      gap: 10px;
+      justify-items: center;
+      font-family: var(--serif);
+      font-size: 14px;
+    }
+
+    .add-milestone i {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 1px solid currentColor;
+      border-radius: 50%;
+      font-family: var(--sans);
+      font-size: 21px;
+      font-style: normal;
+      font-weight: 300;
+    }
+
+    .letter-section {
+      position: relative;
+      overflow: hidden;
+      padding: 112px max(40px, calc((100vw - 1180px) / 2));
+      scroll-margin-top: 88px;
+      content-visibility: auto;
+      contain-intrinsic-size: auto 780px;
+      color: #f8e9dd;
+      background:
+        radial-gradient(circle at 20% 15%, rgba(161, 88, 80, 0.34), transparent 28rem),
+        radial-gradient(circle at 82% 75%, rgba(89, 105, 87, 0.27), transparent 26rem),
+        #42282a;
+    }
+
+    .letter-section::before {
+      content: "";
+      position: absolute;
+      top: -200px;
+      left: -170px;
+      width: 520px;
+      height: 520px;
+      border: 1px solid rgba(255, 236, 219, 0.08);
+      border-radius: 50%;
+      box-shadow: 0 0 0 80px rgba(255, 236, 219, 0.02), 0 0 0 160px rgba(255, 236, 219, 0.018);
+    }
+
+    .letter-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      align-items: center;
+      gap: 80px;
+    }
+
+    .letter-intro .section-kicker {
+      color: #e9b7a9;
+    }
+
+    .letter-intro .section-kicker::before {
+      border-color: rgba(233, 183, 169, 0.3);
+    }
+
+    .letter-intro h2 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(42px, 4.7vw, 66px);
+      font-weight: 500;
+      line-height: 1.18;
+      letter-spacing: -0.035em;
+    }
+
+    .letter-intro h2 em {
+      color: #e7ad9f;
+      font-style: italic;
+    }
+
+    .letter-intro p {
+      max-width: 390px;
+      margin: 26px 0 0;
+      color: rgba(248, 233, 221, 0.68);
+      font-family: var(--serif);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .letter-signature {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 40px;
+      color: rgba(248, 233, 221, 0.54);
+      font-family: var(--hand);
+      font-size: 13px;
+    }
+
+    .letter-signature::before {
+      content: "";
+      width: 38px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    .letter-paper {
+      position: relative;
+      min-height: 520px;
+      padding: 54px 52px 42px;
+      border-radius: 3px 3px 18px 18px;
+      color: var(--ink);
+      background:
+        linear-gradient(rgba(255, 251, 243, 0.86), rgba(255, 251, 243, 0.86)),
+        repeating-linear-gradient(0deg, transparent 0 31px, rgba(112, 79, 64, 0.14) 31px 32px);
+      box-shadow: 0 35px 80px rgba(26, 13, 14, 0.25);
+      transform: rotate(0.8deg);
+    }
+
+    .letter-paper::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--rose), var(--rose-pale), var(--gold), var(--sage));
+      opacity: 0.7;
+    }
+
+    .letter-paper::after {
+      content: "";
+      position: absolute;
+      inset: 13px;
+      pointer-events: none;
+      border: 1px solid rgba(109, 70, 59, 0.1);
+    }
+
+    .letter-clip {
+      position: absolute;
+      z-index: 4;
+      top: -17px;
+      left: 50%;
+      width: 112px;
+      height: 36px;
+      background: rgba(220, 194, 157, 0.7);
+      transform: translateX(-50%) rotate(-2deg);
+      clip-path: polygon(2% 0, 99% 2%, 97% 98%, 0 100%);
+    }
+
+    .letter-wax {
+      position: absolute;
+      z-index: 5;
+      right: 37px;
+      bottom: 31px;
+      display: grid;
+      width: 59px;
+      height: 59px;
+      place-items: center;
+      border-radius: 50%;
+      color: #f4d9cc;
+      background:
+        radial-gradient(circle at 37% 32%, #b66061, #7e3438 65%, #672528);
+      box-shadow: 0 6px 14px rgba(99, 40, 42, 0.3), inset 0 0 0 5px rgba(255, 255, 255, 0.04);
+      font-family: var(--serif);
+      font-size: 22px;
+      transform: rotate(-8deg);
+    }
+
+    .letter-scroll {
+      position: relative;
+      z-index: 2;
+      max-height: 400px;
+      overflow: hidden;
+      transition: max-height 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .letter-scroll::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 115px;
+      pointer-events: none;
+      background: linear-gradient(transparent, rgba(255, 251, 243, 0.98));
+      transition: opacity 0.4s ease;
+    }
+
+    .letter-paper.is-open .letter-scroll {
+      max-height: 1300px;
+    }
+
+    .letter-paper.is-open .letter-scroll::after {
+      opacity: 0;
+    }
+
+    .letter-body {
+      margin: 0;
+      color: #5e4942;
+      font-family: var(--hand);
+      font-size: 17px;
+      line-height: 2.25;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
+    .letter-actions {
+      position: relative;
+      z-index: 6;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .letter-actions button {
+      display: inline-flex;
+      height: 38px;
+      align-items: center;
+      gap: 7px;
+      padding: 0 15px;
+      border: 1px solid rgba(96, 61, 52, 0.17);
+      border-radius: 999px;
+      color: #5f4942;
+      background: rgba(255, 251, 243, 0.5);
+      font-size: 10px;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+    }
+
+    .letter-actions button:hover {
+      color: var(--rose-deep);
+      background: #fffaf3;
+    }
+
+    .letter-actions svg {
+      width: 14px;
+      height: 14px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.6;
+    }
+
+    .site-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 34px max(30px, calc((100vw - 1200px) / 2));
+      border-top: 1px solid rgba(100, 64, 54, 0.12);
+      color: var(--ink-soft);
+      background: rgba(249, 242, 232, 0.7);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+    }
+
+    .footer-heart {
+      color: var(--rose);
+      font-family: var(--serif);
+      font-size: 17px;
+    }
+
+    .footer-note {
+      text-align: right;
+    }
+
+    dialog {
+      padding: 0;
+      border: 0;
+      color: var(--ink);
+      background: transparent;
+    }
+
+    dialog::backdrop {
+      background: rgba(42, 29, 28, 0.7);
+      animation: backdropIn 0.28s ease both;
+    }
+
+    @keyframes backdropIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .paper-dialog {
+      width: min(540px, calc(100% - 32px));
+      max-height: min(760px, calc(100vh - 40px));
+      overflow: auto;
+      padding: 0;
+      border-radius: 26px;
+      background: var(--cream);
+      box-shadow: 0 35px 90px rgba(38, 20, 18, 0.3);
+    }
+
+    .paper-dialog[open] {
+      animation: dialogIn 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    @keyframes dialogIn {
+      from { opacity: 0; transform: translateY(18px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .dialog-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 28px 30px 21px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .dialog-header h2 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 26px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    .dialog-header p {
+      margin: 7px 0 0;
+      color: var(--ink-soft);
+      font-family: var(--serif);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .dialog-close {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      flex: 0 0 auto;
+      place-items: center;
+      border: 1px solid rgba(92, 57, 49, 0.12);
+      border-radius: 50%;
+      color: var(--ink-soft);
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .dialog-close:hover {
+      color: var(--rose-deep);
+      background: rgba(185, 92, 94, 0.08);
+    }
+
+    .dialog-close svg {
+      width: 15px;
+      height: 15px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-width: 1.7;
+    }
+
+    .dialog-body {
+      padding: 25px 30px 30px;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .field label {
+      color: var(--ink-soft);
+      font-size: 11px;
+      letter-spacing: 0.05em;
+    }
+
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+      border: 1px solid rgba(91, 58, 50, 0.15);
+      border-radius: 13px;
+      color: var(--ink);
+      background: rgba(248, 241, 231, 0.55);
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .field input {
+      height: 48px;
+      padding: 0 15px;
+    }
+
+    .field textarea {
+      min-height: 150px;
+      padding: 13px 15px;
+      line-height: 1.75;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      border-color: rgba(185, 92, 94, 0.6);
+      background: #fffdf8;
+    }
+
+    .field-hint {
+      margin: -8px 0 19px;
+      color: #9b8379;
+      font-size: 10px;
+      line-height: 1.6;
+    }
+
+    .cloud-panel {
+      margin: 7px 0 20px;
+      padding: 17px;
+      border: 1px solid rgba(102, 64, 55, 0.12);
+      border-radius: 16px;
+      background: rgba(248, 241, 231, 0.54);
+    }
+
+    .cloud-panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .cloud-panel-head h3 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .cloud-status {
+      display: inline-flex;
+      min-height: 24px;
+      align-items: center;
+      padding: 0 9px;
+      border-radius: 999px;
+      color: var(--ink-soft);
+      background: rgba(119, 130, 111, 0.12);
+      font-size: 8px;
+      letter-spacing: 0.06em;
+    }
+
+    .cloud-status.is-connected {
+      color: #52634a;
+      background: rgba(119, 130, 111, 0.18);
+    }
+
+    .cloud-panel > p {
+      margin: 0 0 13px;
+      color: var(--ink-soft);
+      font-size: 10px;
+      line-height: 1.7;
+    }
+
+    .cloud-panel .field {
+      margin-bottom: 10px;
+    }
+
+    .cloud-panel .field input {
+      height: 43px;
+      background: rgba(255, 253, 248, 0.8);
+    }
+
+    .cloud-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 11px;
+    }
+
+    .cloud-actions button,
+    .cloud-actions a {
+      display: inline-flex;
+      min-height: 34px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 12px;
+      border: 1px solid rgba(91, 58, 50, 0.14);
+      border-radius: 999px;
+      color: var(--ink-soft);
+      background: rgba(255, 250, 243, 0.72);
+      font-size: 9px;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .cloud-actions button:hover,
+    .cloud-actions a:hover {
+      color: var(--rose-deep);
+      background: #fffdf8;
+    }
+
+    .dialog-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      padding-top: 3px;
+    }
+
+    .dialog-actions button {
+      height: 44px;
+      padding: 0 19px;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+    }
+
+    .dialog-cancel {
+      border: 1px solid rgba(91, 58, 50, 0.14);
+      color: var(--ink-soft);
+      background: transparent;
+    }
+
+    .dialog-submit {
+      border: 1px solid var(--rose);
+      color: #fff9f2;
+      background: var(--rose);
+    }
+
+    .dialog-submit:hover {
+      background: var(--rose-deep);
+    }
+
+    .confirm-dialog {
+      width: min(420px, calc(100% - 32px));
+    }
+
+    .confirm-dialog .dialog-body {
+      padding-top: 21px;
+    }
+
+    .confirm-dialog p {
+      margin: 0 0 22px;
+      color: var(--ink-soft);
+      font-family: var(--serif);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .danger-button {
+      border: 1px solid #9a4548;
+      color: #fff9f2;
+      background: #9a4548;
+    }
+
+    .lightbox {
+      width: 100vw;
+      max-width: none;
+      height: 100vh;
+      max-height: none;
+      margin: 0;
+      overflow: hidden;
+      color: #f8eee3;
+      background: rgba(27, 20, 19, 0.96);
+    }
+
+    .lightbox::backdrop {
+      background: rgba(21, 15, 14, 0.85);
+    }
+
+    .lightbox-shell {
+      display: grid;
+      height: 100%;
+      grid-template-columns: minmax(0, 1fr) 355px;
+    }
+
+    .lightbox-stage {
+      position: relative;
+      display: grid;
+      min-width: 0;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      padding: 20px 28px 22px;
+    }
+
+    .lightbox-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-bottom: 14px;
+      color: rgba(248, 238, 227, 0.64);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+    }
+
+    .lightbox-close {
+      display: grid;
+      width: 39px;
+      height: 39px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 50%;
+      color: rgba(248, 238, 227, 0.8);
+      background: rgba(255, 255, 255, 0.04);
+      cursor: pointer;
+    }
+
+    .lightbox-close:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .lightbox-close svg {
+      width: 17px;
+      height: 17px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-width: 1.5;
+    }
+
+    .lightbox-image-area {
+      position: relative;
+      display: grid;
+      min-height: 0;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    .lightbox-image {
+      display: block;
+      max-width: 100%;
+      max-height: calc(100vh - 150px);
+      border-radius: 3px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.32);
+      object-fit: contain;
+      transition: opacity 0.22s ease;
+    }
+
+    .lightbox-image.is-switching {
+      opacity: 0;
+    }
+
+    .lb-arrow {
+      position: absolute;
+      z-index: 3;
+      top: 50%;
+      display: grid;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 50%;
+      color: #f8eee3;
+      background: rgba(26, 19, 18, 0.44);
+      cursor: pointer;
+      transform: translateY(-50%);
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .lb-arrow:hover {
+      background: rgba(185, 92, 94, 0.65);
+      transform: translateY(-50%) scale(1.04);
+    }
+
+    .lb-arrow.prev {
+      left: 4px;
+    }
+
+    .lb-arrow.next {
+      right: 4px;
+    }
+
+    .lb-arrow svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.6;
+    }
+
+    .lightbox-bottombar {
+      display: flex;
+      min-height: 54px;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .lb-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .lb-tool {
+      display: inline-flex;
+      height: 38px;
+      align-items: center;
+      gap: 7px;
+      padding: 0 13px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      color: rgba(248, 238, 227, 0.75);
+      background: rgba(255, 255, 255, 0.035);
+      font-size: 10px;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .lb-tool:hover,
+    .lb-tool.is-active {
+      color: #fff8ee;
+      background: rgba(185, 92, 94, 0.32);
+    }
+
+    .lb-tool.is-favorite {
+      color: #f3b6ad;
+      background: rgba(185, 92, 94, 0.2);
+    }
+
+    .lb-tool svg {
+      width: 14px;
+      height: 14px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.6;
+    }
+
+    .lb-tool.is-favorite svg {
+      fill: currentColor;
+    }
+
+    .slide-progress {
+      width: 120px;
+      height: 2px;
+      align-self: center;
+      overflow: hidden;
+      border-radius: 99px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .slide-progress i {
+      display: block;
+      width: 0;
+      height: 100%;
+      background: var(--rose-pale);
+    }
+
+    .lightbox-sidebar {
+      display: flex;
+      min-height: 0;
+      flex-direction: column;
+      padding: 37px 29px 25px;
+      border-left: 1px solid rgba(255, 255, 255, 0.09);
+      background: #342421;
+    }
+
+    .sidebar-eyebrow {
+      color: rgba(248, 238, 227, 0.38);
+      font-family: var(--serif);
+      font-size: 9px;
+      letter-spacing: 0.21em;
+      text-transform: uppercase;
+    }
+
+    .sidebar-title {
+      margin: 13px 0 25px;
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .sidebar-fields {
+      display: grid;
+      gap: 17px;
+      overflow-y: auto;
+      padding-right: 3px;
+    }
+
+    .dark-field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .dark-field label {
+      color: rgba(248, 238, 227, 0.46);
+      font-size: 9px;
+      letter-spacing: 0.1em;
+    }
+
+    .dark-field textarea,
+    .dark-field input {
+      width: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      color: #f9ede2;
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .dark-field textarea {
+      min-height: 130px;
+      padding: 11px 12px;
+      font-family: var(--hand);
+      font-size: 15px;
+      line-height: 1.75;
+      resize: vertical;
+    }
+
+    .dark-field input {
+      height: 42px;
+      padding: 0 12px;
+      color-scheme: dark;
+    }
+
+    .dark-field textarea:focus,
+    .dark-field input:focus {
+      border-color: rgba(233, 183, 169, 0.65);
+      outline: none;
+    }
+
+    .save-status {
+      min-height: 16px;
+      margin-top: 9px;
+      color: rgba(248, 238, 227, 0.4);
+      font-size: 9px;
+      letter-spacing: 0.05em;
+    }
+
+    .sidebar-spacer {
+      flex: 1;
+    }
+
+    .sidebar-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .sidebar-footer small {
+      color: rgba(248, 238, 227, 0.33);
+      font-size: 9px;
+      line-height: 1.6;
+    }
+
+    .delete-photo {
+      display: inline-flex;
+      height: 36px;
+      align-items: center;
+      gap: 6px;
+      padding: 0 11px;
+      border: 1px solid rgba(240, 165, 160, 0.14);
+      border-radius: 999px;
+      color: rgba(240, 165, 160, 0.6);
+      background: transparent;
+      font-size: 9px;
+      cursor: pointer;
+    }
+
+    .delete-photo:hover {
+      color: #f3b6ad;
+      background: rgba(185, 92, 94, 0.16);
+    }
+
+    .delete-photo svg {
+      width: 13px;
+      height: 13px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.5;
+    }
+
+    .drop-overlay {
+      position: fixed;
+      z-index: 95;
+      inset: 18px;
+      display: grid;
+      place-items: center;
+      border: 2px dashed rgba(255, 250, 243, 0.65);
+      border-radius: 30px;
+      color: #fffaf3;
+      background: rgba(118, 51, 55, 0.88);
+      pointer-events: none;
+      animation: dropIn 0.2s ease both;
+    }
+
+    @keyframes dropIn {
+      from { opacity: 0; transform: scale(0.99); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .drop-content {
+      display: grid;
+      justify-items: center;
+      gap: 15px;
+      text-align: center;
+    }
+
+    .drop-content svg {
+      width: 54px;
+      height: 54px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.1;
+    }
+
+    .drop-content strong {
+      font-family: var(--serif);
+      font-size: 30px;
+      font-weight: 500;
+    }
+
+    .drop-content span {
+      color: rgba(255, 250, 243, 0.68);
+      font-family: var(--serif);
+      font-size: 13px;
+    }
+
+    .upload-status {
+      position: fixed;
+      z-index: 92;
+      bottom: 24px;
+      left: 50%;
+      width: min(390px, calc(100% - 40px));
+      padding: 14px 17px 13px;
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: 17px;
+      color: #fff8ee;
+      background: rgba(43, 31, 29, 0.92);
+      box-shadow: 0 15px 35px rgba(34, 19, 17, 0.28);
+      transform: translateX(-50%);
+    }
+
+    .upload-status-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      font-size: 10px;
+      letter-spacing: 0.04em;
+    }
+
+    .upload-status-row span:last-child {
+      color: rgba(255, 248, 238, 0.55);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .upload-bar {
+      height: 3px;
+      margin-top: 10px;
+      overflow: hidden;
+      border-radius: 99px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .upload-bar i {
+      display: block;
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #e5aa9d, #f1d9bd);
+      transition: width 0.3s ease;
+    }
+
+    .toast-stack {
+      position: fixed;
+      z-index: 110;
+      right: 22px;
+      bottom: 22px;
+      display: grid;
+      gap: 9px;
+      pointer-events: none;
+    }
+
+    .toast {
+      display: flex;
+      max-width: 340px;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      color: #fff8ee;
+      background: rgba(51, 35, 32, 0.94);
+      box-shadow: 0 16px 35px rgba(47, 28, 24, 0.22);
+      font-size: 11px;
+      line-height: 1.5;
+      animation: toastIn 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .toast::before {
+      content: "♡";
+      color: #e8b1a5;
+      font-family: var(--serif);
+      font-size: 16px;
+    }
+
+    .toast.is-error::before {
+      content: "!";
+      display: grid;
+      width: 17px;
+      height: 17px;
+      place-items: center;
+      border: 1px solid #e8b1a5;
+      border-radius: 50%;
+      font-family: var(--sans);
+      font-size: 10px;
+    }
+
+    .toast.is-leaving {
+      animation: toastOut 0.25s ease both;
+    }
+
+    @keyframes toastIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes toastOut {
+      to { opacity: 0; transform: translateY(6px); }
+    }
+
+    .heart-particle {
+      position: fixed;
+      z-index: 120;
+      color: var(--rose);
+      font-family: var(--serif);
+      font-size: var(--size, 16px);
+      pointer-events: none;
+      animation: heartFloat 1.05s cubic-bezier(0.16, 0.85, 0.34, 1) forwards;
+    }
+
+    @keyframes heartFloat {
+      0% { opacity: 1; transform: translate(-50%, -50%) scale(0.65) rotate(0); }
+      100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1.1) rotate(var(--rot)); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.75s ease, transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .photo-card.reveal {
+      transform: translateY(25px) rotate(var(--tilt, 0deg));
+    }
+
+    .photo-card.reveal.is-visible {
+      transform: translateY(0) rotate(var(--tilt, 0deg));
+    }
+
+    .photo-card.reveal.is-visible:hover {
+      transform: translateY(-6px) rotate(0deg);
+    }
+
+    @media (max-width: 1160px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr) minmax(380px, 0.85fr);
+        gap: 25px;
+      }
+
+      .hero-art {
+        transform: scale(0.9);
+        transform-origin: center;
+      }
+
+      .hero h1 {
+        font-size: clamp(50px, 6vw, 72px);
+      }
+
+      .main-nav {
+        display: none;
+      }
+
+      .letter-inner {
+        gap: 45px;
+      }
+
+      .letter-paper {
+        padding: 52px 40px 38px;
+      }
+    }
+
+    @media (max-width: 920px) {
+      .site-header {
+        top: 12px;
+        width: calc(100% - 24px);
+        height: 60px;
+        padding: 0 10px 0 13px;
+      }
+
+      .brand-mark {
+        width: 34px;
+        height: 34px;
+        font-size: 17px;
+      }
+
+      .brand-sub,
+      .music-label {
+        display: none;
+      }
+
+      .icon-button {
+        min-width: 38px;
+        height: 38px;
+        padding: 0 10px;
+      }
+
+      .music-button {
+        min-width: 55px;
+        height: 38px;
+        padding: 0 10px;
+      }
+
+      .hero {
+        width: calc(100% - 28px);
+        min-height: auto;
+        padding: 120px 10px 70px;
+        grid-template-columns: 1fr;
+        gap: 55px;
+        overflow: clip;
+      }
+
+      .hero-copy {
+        max-width: 680px;
+      }
+
+      .hero h1 {
+        font-size: clamp(48px, 11vw, 75px);
+      }
+
+      .hero-art {
+        width: min(100%, 560px);
+        min-height: 570px;
+        margin: 0 auto;
+        transform: none;
+      }
+
+      .stats-strip {
+        width: calc(100% - 40px);
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 92px;
+      }
+
+      .stat:nth-child(3)::before {
+        display: none;
+      }
+
+      .stat:nth-child(n + 3) {
+        border-top: 1px solid var(--line);
+      }
+
+      .section {
+        width: calc(100% - 40px);
+        padding-bottom: 96px;
+      }
+
+      .section-heading {
+        display: block;
+      }
+
+      .section-description {
+        max-width: 520px;
+        margin-top: 18px;
+        text-align: left;
+      }
+
+      .letter-inner {
+        grid-template-columns: 1fr;
+        gap: 52px;
+      }
+
+      .letter-section {
+        padding: 82px 30px;
+      }
+
+      .letter-intro p {
+        max-width: 520px;
+      }
+
+      .lightbox-shell {
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(0, 1fr) auto;
+      }
+
+      .lightbox-stage {
+        padding: 13px 16px 8px;
+      }
+
+      .lightbox-image {
+        max-height: calc(62vh - 100px);
+      }
+
+      .lightbox-sidebar {
+        max-height: 42vh;
+        overflow-y: auto;
+        padding: 18px 20px 16px;
+        border-top: 1px solid rgba(255, 255, 255, 0.09);
+        border-left: 0;
+      }
+
+      .sidebar-title {
+        margin: 5px 0 12px;
+        font-size: 19px;
+      }
+
+      .sidebar-eyebrow,
+      .sidebar-spacer,
+      .sidebar-footer small {
+        display: none;
+      }
+
+      .sidebar-fields {
+        grid-template-columns: minmax(0, 1fr) 145px;
+        gap: 12px;
+        overflow: visible;
+      }
+
+      .dark-field textarea {
+        min-height: 76px;
+      }
+
+      .sidebar-footer {
+        padding-top: 11px;
+      }
+
+      .save-status {
+        margin-top: 3px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .brand-names {
+        max-width: 118px;
+        overflow: hidden;
+        font-size: 14px;
+        text-overflow: ellipsis;
+      }
+
+      .brand-mark {
+        display: none;
+      }
+
+      .hero {
+        padding-right: 4px;
+        padding-left: 4px;
+      }
+
+      .eyebrow {
+        margin-bottom: 21px;
+        font-size: 8px;
+      }
+
+      .eyebrow .eyebrow-date {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: clamp(43px, 12vw, 58px);
+        letter-spacing: -0.06em;
+      }
+
+      .hero h1 .accent {
+        display: block;
+        width: max-content;
+      }
+
+      .hero-lede {
+        margin-top: 22px;
+        font-size: 15px;
+        line-height: 1.8;
+      }
+
+      .hero-actions {
+        margin-top: 27px;
+      }
+
+      .primary-button,
+      .ghost-button {
+        min-height: 48px;
+        padding: 0 19px;
+        font-size: 12px;
+      }
+
+      .hero-counter {
+        gap: 16px;
+        margin-top: 35px;
+      }
+
+      .counter-number strong {
+        font-size: 36px;
+      }
+
+      .hero-art {
+        min-height: 460px;
+      }
+
+      .hero-orbit {
+        width: 370px;
+        height: 370px;
+      }
+
+      .branch-ornament {
+        right: -54px;
+        width: 155px;
+      }
+
+      .slot-one {
+        top: 83px;
+        left: -2px;
+        width: 198px;
+        height: 268px;
+      }
+
+      .slot-two {
+        top: 15px;
+        right: 1px;
+        width: 222px;
+        height: 299px;
+      }
+
+      .slot-three {
+        right: 36px;
+        bottom: 4px;
+        width: 185px;
+        height: 242px;
+      }
+
+      .photo-slot {
+        padding: 8px 8px 36px;
+      }
+
+      .photo-slot::after {
+        right: 11px;
+        bottom: 10px;
+        left: 11px;
+        font-size: 11px;
+      }
+
+      .hover-note {
+        display: none;
+      }
+
+      .anniversary-seal {
+        right: -4px;
+        bottom: 42px;
+        width: 95px;
+        height: 95px;
+      }
+
+      .anniversary-seal strong {
+        font-size: 22px;
+      }
+
+      .hero-note {
+        bottom: -3px;
+        left: 17px;
+      }
+
+      .stats-strip {
+        width: calc(100% - 24px);
+        margin-bottom: 80px;
+      }
+
+      .stat {
+        min-height: 95px;
+        gap: 11px;
+        padding: 20px 15px;
+      }
+
+      .stat-icon {
+        width: 34px;
+        height: 34px;
+      }
+
+      .stat-copy strong {
+        font-size: 18px;
+      }
+
+      .stat-copy span {
+        font-size: 8px;
+      }
+
+      .section {
+        width: calc(100% - 28px);
+      }
+
+      .section-title {
+        font-size: 37px;
+      }
+
+      .section-description {
+        font-size: 13px;
+      }
+
+      .gallery-toolbar {
+        align-items: stretch;
+        padding: 10px;
+      }
+
+      .filter-group {
+        width: 100%;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+      }
+
+      .gallery-tools {
+        width: 100%;
+        flex-wrap: wrap;
+      }
+
+      .tool-select {
+        flex: 1;
+      }
+
+      .gallery.masonry {
+        columns: 2 140px;
+        column-gap: 12px;
+      }
+
+      .photo-card {
+        margin-bottom: 14px;
+        padding: 6px 6px 11px;
+      }
+
+      .photo-caption {
+        font-size: 12px;
+      }
+
+      .photo-caption-row {
+        display: block;
+        padding: 8px 2px 0;
+      }
+
+      .photo-date {
+        display: block;
+        padding-top: 3px;
+      }
+
+      .card-favorite {
+        top: 11px;
+        right: 11px;
+        width: 30px;
+        height: 30px;
+        opacity: 1;
+      }
+
+      .gallery.film {
+        grid-auto-columns: 80vw;
+      }
+
+      .empty-gallery {
+        min-height: 370px;
+      }
+
+      .timeline-shell::before {
+        top: 20px;
+        bottom: 20px;
+        left: 11px;
+        right: auto;
+        border-top: 0;
+        border-left: 1px dashed rgba(126, 78, 64, 0.22);
+      }
+
+      .timeline-track {
+        grid-auto-flow: row;
+        grid-auto-columns: auto;
+        padding: 0 0 0 35px;
+        overflow: visible;
+      }
+
+      .timeline-card,
+      .add-milestone {
+        min-height: auto;
+      }
+
+      .timeline-card {
+        padding: 25px 22px 22px;
+      }
+
+      .timeline-card::before,
+      .add-milestone::before {
+        top: 28px;
+        left: -29px;
+      }
+
+      .timeline-delete {
+        opacity: 1;
+      }
+
+      .add-milestone {
+        padding: 35px 20px;
+      }
+
+      .letter-section {
+        padding: 70px 18px;
+      }
+
+      .letter-intro {
+        padding-left: 10px;
+      }
+
+      .letter-intro h2 {
+        font-size: 44px;
+      }
+
+      .letter-paper {
+        min-height: 470px;
+        padding: 44px 27px 31px;
+      }
+
+      .letter-body {
+        font-size: 15px;
+        line-height: 2.15;
+      }
+
+      .letter-wax {
+        right: 25px;
+        bottom: 24px;
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+      }
+
+      .site-footer {
+        display: grid;
+        justify-content: center;
+        padding: 28px 22px;
+        text-align: center;
+      }
+
+      .footer-note {
+        text-align: center;
+      }
+
+      .field-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .dialog-header,
+      .dialog-body {
+        padding-right: 21px;
+        padding-left: 21px;
+      }
+
+      .lightbox-image {
+        max-height: calc(52vh - 80px);
+      }
+
+      .lb-arrow {
+        width: 38px;
+        height: 38px;
+      }
+
+      .lightbox-bottombar {
+        align-items: center;
+      }
+
+      .lb-tools {
+        gap: 5px;
+      }
+
+      .lb-tool {
+        height: 34px;
+        padding: 0 10px;
+      }
+
+      .lb-tool span {
+        display: none;
+      }
+
+      .slide-progress {
+        width: 48px;
+      }
+
+      .lightbox-sidebar {
+        max-height: 38vh;
+      }
+
+      .sidebar-fields {
+        grid-template-columns: 1fr 120px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .hero h1 {
+        font-size: 37px;
+      }
+
+      .hero-lede {
+        font-size: 14px;
+      }
+
+      .hero-actions {
+        align-items: stretch;
+      }
+
+      .primary-button,
+      .ghost-button {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 1160px) {
+      .heart-hero {
+        min-height: 0;
+        transform: none;
+      }
+
+      .heart-collage {
+        width: min(100%, 560px);
+      }
+    }
+
+    @media (max-width: 920px) {
+      .heart-hero {
+        width: min(100%, 560px);
+        min-height: 0;
+        padding: 12px 0 42px;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .heart-hero {
+        width: 100%;
+        padding: 6px 0 34px;
+      }
+
+      .heart-photo {
+        padding: 3px 3px 2px;
+        border-radius: 3px;
+        box-shadow: 0 6px 14px rgba(75, 43, 34, 0.13);
+      }
+
+      .heart-photo-caption {
+        height: 14px;
+        flex-basis: 14px;
+        padding-top: 2px;
+        font-size: 6.5px;
+        line-height: 11px;
+      }
+
+      .heart-empty-mark {
+        width: 24px;
+        height: 24px;
+        font-size: 14px;
+      }
+
+      .heart-ribbon {
+        bottom: -4px;
+        min-height: 34px;
+        padding: 0 12px;
+        font-size: 8px;
+      }
+
+      .heart-hero .anniversary-seal {
+        right: -1px;
+        bottom: 20px;
+        width: 82px;
+        height: 82px;
+      }
+
+      .heart-hero .anniversary-seal strong {
+        font-size: 19px;
+      }
+
+      .heart-hero .anniversary-seal span {
+        font-size: 6px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="回到首页">
+      <span class="brand-mark" aria-hidden="true">恋</span>
+      <span>
+        <span class="brand-names" id="brandNames">我 &amp; 你</span>
+        <span class="brand-sub" style="display:block">Our first year</span>
+      </span>
+    </a>
+    <nav class="main-nav" aria-label="页面导航">
+      <a href="#gallery">回忆相册</a>
+      <a href="#story">时间线</a>
+      <a href="#letter">写给你</a>
+    </nav>
+    <div class="header-actions">
+      <button class="music-button" id="musicButton" type="button" aria-pressed="false" aria-label="打开氛围音乐">
+        <span class="music-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span class="music-label">氛围</span>
+      </button>
+      <button class="icon-button" id="settingsButton" type="button" aria-label="设置纪念日">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.7 1.7 0 0 0 15 19.37a1.7 1.7 0 0 0-1 1.55V21a2 2 0 1 1-4 0v-.09A1.7 1.7 0 0 0 9 19.37a1.7 1.7 0 0 0-1.88.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.63 15a1.7 1.7 0 0 0-1.55-1H3a2 2 0 1 1 0-4h.09A1.7 1.7 0 0 0 4.63 9a1.7 1.7 0 0 0-.34-1.88l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.63h.01a1.7 1.7 0 0 0 1-1.55V3a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1 1.55 1.7 1.7 0 0 0 1.88-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.37 9v.01a1.7 1.7 0 0 0 1.55 1H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.51 1Z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">
+          <span>Our first anniversary</span>
+          <span class="eyebrow-date" id="heroDateRange">2025.10.18 — 2026.10.18</span>
+        </p>
+        <h1>
+          <span class="title-line">我们的第一年，</span>
+          <span class="title-line">值得被<em class="accent">好好收藏。</em></span>
+        </h1>
+        <p class="hero-lede">
+          从第一次心动，到一起走过的四季。把喜欢的瞬间一张张叠好，慢慢拼成属于我们的心。
+        </p>
+        <div class="hero-actions">
+          <label class="primary-button" for="photoInput" tabindex="0">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="15" rx="2.5"></rect>
+              <circle cx="8.5" cy="10" r="1.5"></circle>
+              <path d="m4 17 5-5 4 4 3-3 4 4"></path>
+            </svg>
+            放进我们的照片
+          </label>
+          <a class="ghost-button" href="#gallery">
+            翻开回忆
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 5v14M6 13l6 6 6-6"></path>
+            </svg>
+          </a>
+        </div>
+        <div class="hero-counter">
+          <div class="counter-number">
+            <span>DAY</span>
+            <strong id="heroDays" data-value="365">365</strong>
+          </div>
+          <div class="counter-detail">
+            <strong>我们一起走过</strong>
+            <span id="liveDuration">365 天 13:13:09</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-art heart-hero" aria-label="我们的心形照片墙">
+        <div class="heart-collage">
+          <svg class="heart-backdrop" viewBox="0 0 620 620" aria-hidden="true">
+            <defs>
+              <linearGradient id="heartFill" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#f0d8cd" stop-opacity=".68"></stop>
+                <stop offset=".52" stop-color="#e5bdb2" stop-opacity=".52"></stop>
+                <stop offset="1" stop-color="#d9cfb9" stop-opacity=".58"></stop>
+              </linearGradient>
+              <pattern id="heartGrain" width="18" height="18" patternUnits="userSpaceOnUse">
+                <circle cx="2" cy="3" r=".9" fill="#8f5e57" opacity=".18"></circle>
+                <circle cx="12" cy="11" r=".6" fill="#8f5e57" opacity=".12"></circle>
+              </pattern>
+            </defs>
+            <path d="M310 590C274 560 48 422 48 236C48 118 186 71 260 145C286 171 301 201 310 226C319 201 334 171 360 145C434 71 572 118 572 236C572 422 346 560 310 590Z" fill="#fffaf3" stroke="#b77f75" stroke-opacity=".2" stroke-width="1.5"></path>
+            <path d="M310 574C280 548 66 415 66 238C66 132 190 92 258 158C286 184 301 212 310 238C319 212 334 184 362 158C430 92 554 132 554 238C554 415 340 548 310 574Z" fill="url(#heartFill)"></path>
+            <path d="M310 574C280 548 66 415 66 238C66 132 190 92 258 158C286 184 301 212 310 238C319 212 334 184 362 158C430 92 554 132 554 238C554 415 340 548 310 574Z" fill="url(#heartGrain)"></path>
+          </svg>
+          <div class="heart-photos" id="heartPhotos">
+              <label class="heart-photo heart-photo-empty" for="photoInput" style="--x:50%;--y:54%;--w:25%;--r:2deg;--z:8" aria-label="上传照片，填满这个心形位置">
+                <span class="heart-photo-image ph-0"><span class="heart-empty-mark">♡</span></span>
+                <span class="heart-photo-caption">留一个位置给回忆</span>
+              </label>
+            
+              <label class="heart-photo heart-photo-empty" for="photoInput" style="--x:39%;--y:34%;--w:24%;--r:4deg;--z:4" aria-label="上传照片，填满这个心形位置">
+                <span class="heart-photo-image ph-1"><span class="heart-empty-mark">♡</span></span>
+                <span class="heart-photo-caption">留一个位置给回忆</span>
+              </label>
+            
+              <label class="heart-photo heart-photo-empty" for="photoInput" style="--x:61%;--y:34%;--w:24%;--r:-4deg;--z:3" aria-label="上传照片，填满这个心形位置">
+                <span class="heart-photo-image ph-2"><span class="heart-empty-mark">♡</span></span>
+                <span class="heart-photo-caption">留一个位置给回忆</span>
+              </label>
+            
+              <label class="heart-photo heart-photo-empty" for="photoInput" style="--x:34%;--y:16%;--w:24%;--r:-8deg;--z:2" aria-label="上传照片，填满这个心形位置">
+                <span class="heart-photo-image ph-3"><span class="heart-empty-mark">♡</span></span>
+                <span class="heart-photo-caption">留一个位置给回忆</span>
+              </label>
+            
+              <label class="heart-photo heart-photo-empty" for="photoInput" style="--x:66%;--y:16%;--w:24%;--r:7deg;--z:1" aria-label="上传照片，填满这个心形位置">
+                <span class="heart-photo-image ph-0"><span class="heart-empty-mark">♡</span></span>
+                <span class="heart-photo-caption">留一个位置给回忆</span>
+              </label>
+            
+              <label class="heart-photo heart-photo-empty" for="photoInput" style="--x:17%;--y:37%;--w:23%;--r:-7deg;--z:3" aria-label="上传照片，填满这个心形位置">
+                <span class="heart-photo-image ph-1"><span class="heart-empty-mark">♡</span></span>
+                <span class="heart-photo-caption">留一个位置给回忆</span>
+              </label>
+            
+              <label class="heart-photo heart-photo-empty" for="photoInput" style="--x:83%;--y:37%;--w:23%;--r:7deg;--z:2" aria-label="上传照片，填满这个心形位置">
+                <span class="heart-photo-image ph-2"><span class="heart-empty-mark">♡</span></span>
+                <span class="heart-photo-caption">留一个位置给回忆</span>
+              </label>
+            
+              <label class="heart-photo heart-photo-empty" for="photoInput" style="--x:29%;--y:58%;--w:23%;--r:-5deg;--z:5" aria-label="上传照片，填满这个心形位置">
+                <span class="heart-photo-image ph-3"><span class="heart-empty-mark">♡</span></span>
+                <span class="heart-photo-caption">留一个位置给回忆</span>
+              </label>
+            
+              <label class="heart-photo heart-photo-empty" for="photoInput" style="--x:71%;--y:58%;--w:23%;--r:6deg;--z:4" aria-label="上传照片，填满这个心形位置">
+                <span class="heart-photo-image ph-0"><span class="heart-empty-mark">♡</span></span>
+                <span class="heart-photo-caption">留一个位置给回忆</span>
+              </label>
+            
+              <label class="heart-photo heart-photo-empty" for="photoInput" style="--x:50%;--y:78%;--w:22%;--r:-3deg;--z:6" aria-label="上传照片，填满这个心形位置">
+                <span class="heart-photo-image ph-1"><span class="heart-empty-mark">♡</span></span>
+                <span class="heart-photo-caption">留一个位置给回忆</span>
+              </label>
+            </div>
+          <svg class="heart-outline" viewBox="0 0 620 620" aria-hidden="true">
+            <path d="M310 574C280 548 66 415 66 238C66 132 190 92 258 158C286 184 301 212 310 238C319 212 334 184 362 158C430 92 554 132 554 238C554 415 340 548 310 574Z" fill="none" stroke="#b66c65" stroke-opacity=".42" stroke-width="2"></path>
+          </svg>
+          <label class="heart-ribbon" for="photoInput" tabindex="0">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 16V4M7 9l5-5 5 5M5 20h14"></path>
+            </svg>
+            <span id="heartStatus">上传照片，拼成我们的心</span>
+          </label>
+          <div class="anniversary-seal" aria-hidden="true">
+            <div>
+              <strong>365</strong>
+              <span>DAYS OF US</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-strip" aria-label="我们的纪念数据">
+      <div class="stat">
+        <span class="stat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M7 3v3M17 3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"></path><path d="M8 13h3M8 16h5M15 13h1"></path></svg>
+        </span>
+        <div class="stat-copy"><strong id="statDays">365 天</strong><span>一起走过的日子</span></div>
+      </div>
+      <div class="stat">
+        <span class="stat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="15" rx="2"></rect><circle cx="8.5" cy="10" r="1.4"></circle><path d="m4 17 5-5 4 4 3-3 4 4"></path></svg>
+        </span>
+        <div class="stat-copy"><strong id="statPhotos">0 张</strong><span>被好好收藏的瞬间</span></div>
+      </div>
+      <div class="stat">
+        <span class="stat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"></path></svg>
+        </span>
+        <div class="stat-copy"><strong id="statFavorites">0 张</strong><span>格外偏爱的回忆</span></div>
+      </div>
+      <div class="stat">
+        <span class="stat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+        </span>
+        <div class="stat-copy"><strong id="statNext">就是今天</strong><span>距离下次纪念日</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="section-heading reveal">
+        <div>
+          <div class="section-kicker">Our little museum</div>
+          <h2 class="section-title">这一年，<em>有迹可循</em>。</h2>
+        </div>
+        <p class="section-description">
+          每一张照片都是一个坐标。等很久以后再翻开，也还能想起那天的风、光线，和站在身边的你。
+        </p>
+      </div>
+
+      <div class="gallery-toolbar reveal">
+        <div class="filter-group" role="group" aria-label="筛选照片">
+          <button class="filter-chip is-active" type="button" data-filter="all">全部 <span id="countAll">0</span></button>
+          <button class="filter-chip" type="button" data-filter="favorite">珍藏 <span id="countFavorite">0</span></button>
+          <button class="filter-chip" type="button" data-filter="recent">最近上传 <span id="countRecent">0</span></button>
+        </div>
+        <div class="gallery-tools">
+          <select class="tool-select" id="sortSelect" aria-label="照片排序">
+            <option value="desc">时间 · 从新到旧</option>
+            <option value="asc">时间 · 从旧到新</option>
+          </select>
+          <div class="view-toggle" role="group" aria-label="相册布局">
+            <button class="is-active" type="button" data-view="masonry" aria-label="照片墙布局" aria-pressed="true">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="5" height="7" rx="1"></rect><rect x="9" y="2" width="5" height="4" rx="1"></rect><rect x="2" y="11" width="5" height="3" rx="1"></rect><rect x="9" y="8" width="5" height="6" rx="1"></rect></svg>
+            </button>
+            <button type="button" data-view="film" aria-label="胶片布局" aria-pressed="false">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="3" width="5" height="10" rx="1"></rect><rect x="9" y="3" width="5" height="10" rx="1"></rect></svg>
+            </button>
+          </div>
+          <button class="random-button" id="randomButton" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h3c5 0 6 10 11 10h4M17 3l4 4-4 4M3 17h3c2 0 3-2 4-4M17 13l4 4-4 4M14 7c1-2 2-3 4-3h3"></path></svg>
+            随机一张
+          </button>
+          <label class="toolbar-upload" for="photoInput" tabindex="0">＋ 添加照片</label>
+        </div>
+      </div>
+
+      <div id="galleryArea" class="reveal">
+        <div class="gallery masonry" id="galleryGrid" aria-live="polite" hidden=""></div>
+        <button class="load-more" id="loadMoreButton" type="button" hidden=""></button>
+        <div class="empty-gallery" id="emptyGallery">
+          <div class="empty-content">
+            <div class="empty-illustration" aria-hidden="true">
+              <span class="empty-frame"><span class="empty-frame-inner"></span></span>
+              <span class="empty-frame"><span class="empty-frame-inner"></span></span>
+              <span class="empty-heart">♡</span>
+            </div>
+            <h3>这里，还差你们的故事</h3>
+            <p>从相册里挑几张喜欢的照片，也可以直接把照片拖进这个页面。支持 JPG、PNG、WebP；iPhone 的 HEIC 照片请先导出为 JPG。</p>
+            <label class="primary-button" for="photoInput" tabindex="0">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M5 20h14"></path></svg>
+              选择第一组照片
+            </label>
+          </div>
+        </div>
+        <div class="filtered-empty" id="filteredEmpty">
+          <div>
+            <p id="filteredEmptyText">还没有收藏照片。</p>
+            <button class="ghost-button" type="button" data-reset-filter="">看看全部回忆</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section timeline-section" id="story">
+      <div class="section-heading reveal">
+        <div>
+          <div class="section-kicker">Our timeline</div>
+          <h2 class="section-title">时间往前走，<em>我们也是</em>。</h2>
+        </div>
+        <p class="section-description">
+          相识、心动、陪伴，还有往后数不完的日子。点击“＋”可以亲手添加属于你们的节点。
+        </p>
+      </div>
+      <div class="timeline-shell reveal">
+        <div class="timeline-track" id="timelineTrack">
+            <article class="timeline-card " data-milestone-id="start">
+              
+              <span class="timeline-date">2025.10.18</span>
+              <h3>故事开始</h3>
+              <p>从这一天起，我的日历里多了一个最重要的日子。</p>
+            </article>
+          
+            <article class="timeline-card " data-milestone-id="day100">
+              
+              <span class="timeline-date">2026.01.25</span>
+              <h3>第 100 天</h3>
+              <p>从心动到心安，我们慢慢成为了彼此的习惯。</p>
+            </article>
+          
+            <article class="timeline-card " data-milestone-id="day200">
+              
+              <span class="timeline-date">2026.05.05</span>
+              <h3>第 200 天</h3>
+              <p>一起吃过很多顿饭，也一起看过很多次晚霞。</p>
+            </article>
+          
+            <article class="timeline-card " data-milestone-id="firstYear">
+              
+              <span class="timeline-date">2026.10.18</span>
+              <h3>一周年</h3>
+              <p>四季走完一轮，下一轮也请多多指教。</p>
+            </article>
+          
+          <button class="add-milestone" type="button" id="addMilestoneButton">
+            <span><i>＋</i>添加我们的节点</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="letter-section" id="letter">
+      <div class="letter-inner">
+        <div class="letter-intro reveal">
+          <div class="section-kicker">A letter for you</div>
+          <h2>有些话，<br>想<em>慢慢说给你</em>听。</h2>
+          <p>照片记住画面，文字记住心情。这封信可以随时改写，像我们一起慢慢补全的未来。</p>
+          <div class="letter-signature" id="letterSignature">我 写给 你 · 一周年</div>
+        </div>
+        <article class="letter-paper reveal" id="letterPaper">
+          <span class="letter-clip" aria-hidden="true"></span>
+          <div class="letter-scroll">
+            <p class="letter-body" id="letterBody">亲爱的你：
+
+写下这些话的时候，我又把我们一起走过的日子，在心里轻轻翻了一遍。
+
+原来喜欢不是某一个盛大的瞬间，而是很多很多小小的、具体的时刻：一起吃饭时随口聊起的话题，走路时不自觉靠近的肩膀，还有每一次说“明天见”时，心里偷偷多出来的一点期待。
+
+这一年，我们看过不同的天气，也见过彼此不太完美的样子。谢谢你把那些普通的日子，变成了我想反复收藏的回忆。
+
+一周年快乐，我最喜欢的人。
+
+下一年的春天、夏天、秋天和冬天，也请继续和我一起走吧。</p>
+          </div>
+          <div class="letter-actions">
+            <button type="button" id="toggleLetterButton">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"></path></svg>
+              <span>展开读完</span>
+            </button>
+            <button type="button" id="editLetterButton">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 20 4.5-1 10-10a2.1 2.1 0 0 0-3-3l-10 10L4 20Z"></path><path d="m14 7 3 3"></path></svg>
+              改写这封信
+            </button>
+          </div>
+          <span class="letter-wax" aria-hidden="true">♥</span>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span id="footerNames">我 &amp; 你 · 第一年</span>
+    <span class="footer-heart" aria-hidden="true">♡</span>
+    <span class="footer-note">Made with one whole year of love · <span id="footerYear">2026</span></span>
+  </footer>
+
+  <input class="sr-only" id="photoInput" type="file" accept="image/*" multiple="">
+
+  <div class="drop-overlay" id="dropOverlay" hidden="">
+    <div class="drop-content">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M5 20h14"></path></svg>
+      <strong>把照片放在这里</strong>
+      <span>松手后，它们会成为我们回忆的一部分</span>
+    </div>
+  </div>
+
+  <div class="upload-status" id="uploadStatus" hidden="" aria-live="polite">
+    <div class="upload-status-row">
+      <span id="uploadStatusText">正在收好回忆…</span>
+      <span id="uploadStatusCount">0 / 0</span>
+    </div>
+    <div class="upload-bar"><i id="uploadBar"></i></div>
+  </div>
+
+  <dialog class="paper-dialog" id="settingsDialog">
+    <form id="settingsForm">
+      <div class="dialog-header">
+        <div>
+          <h2>我们的纪念日</h2>
+          <p>换一个称呼和日期，整本相册都会跟着更新。</p>
+        </div>
+        <button class="dialog-close" type="button" data-close-dialog="" aria-label="关闭">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg>
+        </button>
+      </div>
+      <div class="dialog-body">
+        <div class="field-grid">
+          <div class="field">
+            <label for="myNameInput">你的昵称</label>
+            <input id="myNameInput" name="myName" maxlength="18" autocomplete="off" placeholder="我">
+          </div>
+          <div class="field">
+            <label for="herNameInput">她的昵称</label>
+            <input id="herNameInput" name="herName" maxlength="18" autocomplete="off" placeholder="你">
+          </div>
+        </div>
+        <div class="field">
+          <label for="startDateInput">我们相识 / 在一起的那一天</label>
+          <input id="startDateInput" name="startDate" type="date" required="">
+        </div>
+        <div class="cloud-panel">
+          <div class="cloud-panel-head">
+            <h3>在线同步</h3>
+            <span class="cloud-status" id="cloudStatus">未连接</span>
+          </div>
+          <p>连接后，你上传的照片、文字和纪念日会同步到相册链接。对方打开链接就能看到，无需登录。</p>
+          <div class="field">
+            <label for="githubTokenInput">GitHub 访问令牌</label>
+            <input id="githubTokenInput" type="password" autocomplete="off" spellcheck="false" placeholder="填写后保存，令牌只留在这台电脑">
+          </div>
+          <div class="cloud-actions">
+            <button type="button" id="publishCloudButton">同步全部照片</button>
+            <button type="button" id="clearCloudButton">断开同步</button>
+            <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer">创建令牌</a>
+          </div>
+        </div>
+        <p class="field-hint">照片会同步到公开仓库，但网页已设置为搜索引擎不收录。访问链接的人仍然可以查看相册，请只上传愿意分享给对方的内容。</p>
+        <div class="dialog-actions">
+          <button class="dialog-cancel" type="button" data-close-dialog="">取消</button>
+          <button class="dialog-submit" type="submit">保存设置</button>
+        </div>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="paper-dialog" id="textEditorDialog">
+    <form id="textEditorForm">
+      <div class="dialog-header">
+        <div>
+          <h2 id="editorTitle">改写这封信</h2>
+          <p id="editorDescription">写给未来翻到这一页的我们。</p>
+        </div>
+        <button class="dialog-close" type="button" data-close-dialog="" aria-label="关闭">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg>
+        </button>
+      </div>
+      <div class="dialog-body">
+        <div class="field" id="editorTitleField" hidden="">
+          <label for="milestoneTitleInput">节点名称</label>
+          <input id="milestoneTitleInput" type="text" maxlength="40" placeholder="例如：第一次一起旅行">
+        </div>
+        <div class="field" id="editorDateField" hidden="">
+          <label for="milestoneDateInput">日期</label>
+          <input id="milestoneDateInput" type="date">
+        </div>
+        <div class="field">
+          <label for="editorText" id="editorTextLabel">信的内容</label>
+          <textarea id="editorText" rows="10" maxlength="3000" placeholder="把想说的话写下来…"></textarea>
+        </div>
+        <div class="dialog-actions">
+          <button class="dialog-cancel" type="button" data-close-dialog="">取消</button>
+          <button class="dialog-submit" type="submit" id="editorSubmit">保存</button>
+        </div>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="paper-dialog confirm-dialog" id="confirmDialog">
+    <div class="dialog-header">
+      <div>
+        <h2 id="confirmTitle">确认操作</h2>
+        <p>这个操作需要再确认一次。</p>
+      </div>
+      <button class="dialog-close" type="button" data-close-dialog="" aria-label="关闭">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg>
+      </button>
+    </div>
+    <div class="dialog-body">
+      <p id="confirmMessage"></p>
+      <div class="dialog-actions">
+        <button class="dialog-cancel" type="button" data-confirm-cancel="">取消</button>
+        <button class="danger-button" type="button" data-confirm-ok="" id="confirmOk">确认</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="lightbox" id="lightbox">
+    <div class="lightbox-shell">
+      <div class="lightbox-stage">
+        <div class="lightbox-topbar">
+          <span id="lightboxCounter">01 / 01</span>
+          <button class="lightbox-close" type="button" id="lightboxClose" aria-label="关闭照片">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg>
+          </button>
+        </div>
+        <div class="lightbox-image-area">
+          <button class="lb-arrow prev" type="button" id="prevPhoto" aria-label="上一张">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg>
+          </button>
+          <img class="lightbox-image" id="lightboxImage" alt="">
+          <button class="lb-arrow next" type="button" id="nextPhoto" aria-label="下一张">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg>
+          </button>
+        </div>
+        <div class="lightbox-bottombar">
+          <div class="lb-tools">
+            <button class="lb-tool" type="button" id="lightboxFavorite">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"></path></svg>
+              <span>珍藏</span>
+            </button>
+            <button class="lb-tool" type="button" id="slideshowButton">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7V5Z"></path></svg>
+              <span>自动播放</span>
+            </button>
+            <a class="lb-tool" id="downloadPhoto" download="">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"></path></svg>
+              <span>下载原图</span>
+            </a>
+          </div>
+          <div class="slide-progress" id="slideProgress" hidden=""><i id="slideProgressBar"></i></div>
+        </div>
+      </div>
+      <aside class="lightbox-sidebar">
+        <span class="sidebar-eyebrow">A moment to remember</span>
+        <h3 class="sidebar-title" id="lightboxTitle">这一刻</h3>
+        <div class="sidebar-fields">
+          <div class="dark-field">
+            <label for="photoCaptionInput">写给这一刻</label>
+            <textarea id="photoCaptionInput" maxlength="240" placeholder="给这张照片写一句话…"></textarea>
+            <div class="save-status" id="photoSaveStatus">自动保存</div>
+          </div>
+          <div class="dark-field">
+            <label for="photoDateInput">照片日期</label>
+            <input id="photoDateInput" type="date">
+          </div>
+        </div>
+        <div class="sidebar-spacer"></div>
+        <div class="sidebar-footer">
+          <small id="photoMeta">仅保存在本地</small>
+          <button class="delete-photo" type="button" id="deletePhotoButton">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M7 7l1 13h8l1-13M10 11v5M14 11v5"></path></svg>
+            删除照片
+          </button>
+        </div>
+      </aside>
+    </div>
+  </dialog>
+
+  <div class="toast-stack" id="toastStack" aria-live="polite" aria-atomic="false"></div>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const DB_NAME = "our-first-year-album";
+      const DB_VERSION = 1;
+      const STORE_NAME = "photos";
+      const SETTINGS_KEY = "our-album-settings-v1";
+      const LETTER_KEY = "our-album-letter-v1";
+      const MILESTONES_KEY = "our-album-milestones-v1";
+      const CLOUD_CONFIG_KEY = "our-album-github-v1";
+      const CLOUD_REPO_OWNER = "Chen04231203";
+      const CLOUD_REPO_NAME = "our-first-year-album";
+      const CLOUD_BRANCH = "main";
+      const CLOUD_MANIFEST_PATH = "album-data.json";
+      const CLOUD_API_BASE = `https://api.github.com/repos/${CLOUD_REPO_OWNER}/${CLOUD_REPO_NAME}/contents`;
+      const CLOUD_RAW_BASE = `https://raw.githubusercontent.com/${CLOUD_REPO_OWNER}/${CLOUD_REPO_NAME}/${CLOUD_BRANCH}`;
+      const CLOUD_RAW_MANIFEST_URL = `${CLOUD_RAW_BASE}/${CLOUD_MANIFEST_PATH}`;
+      const CLOUD_RAW_PHOTO_BASE = `${CLOUD_RAW_BASE}/photos`;
+      const MAX_CAPTION = 240;
+      const MAX_LETTER = 3000;
+      const ONE_DAY = 86400000;
+      const GALLERY_PAGE_SIZE = 30;
+      const HEART_SLOTS = [
+        { x: 50, y: 54, r: 2, w: 25, z: 8 },
+        { x: 39, y: 34, r: 4, w: 24, z: 4 },
+        { x: 61, y: 34, r: -4, w: 24, z: 3 },
+        { x: 34, y: 16, r: -8, w: 24, z: 2 },
+        { x: 66, y: 16, r: 7, w: 24, z: 1 },
+        { x: 17, y: 37, r: -7, w: 23, z: 3 },
+        { x: 83, y: 37, r: 7, w: 23, z: 2 },
+        { x: 29, y: 58, r: -5, w: 23, z: 5 },
+        { x: 71, y: 58, r: 6, w: 23, z: 4 },
+        { x: 50, y: 78, r: -3, w: 22, z: 6 }
+      ];
+
+      const DEFAULT_LETTER = `亲爱的你：
+
+写下这些话的时候，我又把我们一起走过的日子，在心里轻轻翻了一遍。
+
+原来喜欢不是某一个盛大的瞬间，而是很多很多小小的、具体的时刻：一起吃饭时随口聊起的话题，走路时不自觉靠近的肩膀，还有每一次说“明天见”时，心里偷偷多出来的一点期待。
+
+这一年，我们看过不同的天气，也见过彼此不太完美的样子。谢谢你把那些普通的日子，变成了我想反复收藏的回忆。
+
+一周年快乐，我最喜欢的人。
+
+下一年的春天、夏天、秋天和冬天，也请继续和我一起走吧。`;
+
+      const state = {
+        photos: [],
+        dbUnavailable: false,
+        storageWarningShown: false,
+        settings: null,
+        customMilestones: [],
+        filter: "all",
+        sort: "desc",
+        view: "masonry",
+        galleryLimit: GALLERY_PAGE_SIZE,
+        cloudToken: "",
+        cloudSyncTimer: null,
+        cloudSyncing: false,
+        cloudSyncPending: false,
+        cloudLastSync: "",
+        letterOpen: false,
+        editorMode: null,
+        lightboxIds: [],
+        lightboxIndex: 0,
+        slideshowTimer: null,
+        slideProgressTimer: null,
+        saveTimer: null,
+        audio: null
+      };
+
+      const objectUrls = new Map();
+      const elements = {
+        photoInput: document.getElementById("photoInput"),
+        heartPhotos: document.getElementById("heartPhotos"),
+        heartStatus: document.getElementById("heartStatus"),
+        galleryGrid: document.getElementById("galleryGrid"),
+        loadMoreButton: document.getElementById("loadMoreButton"),
+        galleryArea: document.getElementById("galleryArea"),
+        emptyGallery: document.getElementById("emptyGallery"),
+        filteredEmpty: document.getElementById("filteredEmpty"),
+        filteredEmptyText: document.getElementById("filteredEmptyText"),
+        countAll: document.getElementById("countAll"),
+        countFavorite: document.getElementById("countFavorite"),
+        countRecent: document.getElementById("countRecent"),
+        sortSelect: document.getElementById("sortSelect"),
+        brandNames: document.getElementById("brandNames"),
+        footerNames: document.getElementById("footerNames"),
+        footerYear: document.getElementById("footerYear"),
+        heroDays: document.getElementById("heroDays"),
+        heroDateRange: document.getElementById("heroDateRange"),
+        liveDuration: document.getElementById("liveDuration"),
+        statDays: document.getElementById("statDays"),
+        statPhotos: document.getElementById("statPhotos"),
+        statFavorites: document.getElementById("statFavorites"),
+        statNext: document.getElementById("statNext"),
+        timelineTrack: document.getElementById("timelineTrack"),
+        letterBody: document.getElementById("letterBody"),
+        letterPaper: document.getElementById("letterPaper"),
+        letterSignature: document.getElementById("letterSignature"),
+        toggleLetterButton: document.getElementById("toggleLetterButton"),
+        editLetterButton: document.getElementById("editLetterButton"),
+        settingsDialog: document.getElementById("settingsDialog"),
+        settingsForm: document.getElementById("settingsForm"),
+        myNameInput: document.getElementById("myNameInput"),
+        herNameInput: document.getElementById("herNameInput"),
+        startDateInput: document.getElementById("startDateInput"),
+        githubTokenInput: document.getElementById("githubTokenInput"),
+        cloudStatus: document.getElementById("cloudStatus"),
+        publishCloudButton: document.getElementById("publishCloudButton"),
+        clearCloudButton: document.getElementById("clearCloudButton"),
+        textEditorDialog: document.getElementById("textEditorDialog"),
+        textEditorForm: document.getElementById("textEditorForm"),
+        editorTitle: document.getElementById("editorTitle"),
+        editorDescription: document.getElementById("editorDescription"),
+        editorTitleField: document.getElementById("editorTitleField"),
+        editorDateField: document.getElementById("editorDateField"),
+        editorTextLabel: document.getElementById("editorTextLabel"),
+        editorText: document.getElementById("editorText"),
+        milestoneTitleInput: document.getElementById("milestoneTitleInput"),
+        milestoneDateInput: document.getElementById("milestoneDateInput"),
+        editorSubmit: document.getElementById("editorSubmit"),
+        confirmDialog: document.getElementById("confirmDialog"),
+        confirmTitle: document.getElementById("confirmTitle"),
+        confirmMessage: document.getElementById("confirmMessage"),
+        confirmOk: document.getElementById("confirmOk"),
+        lightbox: document.getElementById("lightbox"),
+        lightboxCounter: document.getElementById("lightboxCounter"),
+        lightboxImage: document.getElementById("lightboxImage"),
+        lightboxTitle: document.getElementById("lightboxTitle"),
+        lightboxFavorite: document.getElementById("lightboxFavorite"),
+        lightboxClose: document.getElementById("lightboxClose"),
+        prevPhoto: document.getElementById("prevPhoto"),
+        nextPhoto: document.getElementById("nextPhoto"),
+        slideshowButton: document.getElementById("slideshowButton"),
+        downloadPhoto: document.getElementById("downloadPhoto"),
+        photoCaptionInput: document.getElementById("photoCaptionInput"),
+        photoDateInput: document.getElementById("photoDateInput"),
+        photoSaveStatus: document.getElementById("photoSaveStatus"),
+        photoMeta: document.getElementById("photoMeta"),
+        deletePhotoButton: document.getElementById("deletePhotoButton"),
+        dropOverlay: document.getElementById("dropOverlay"),
+        uploadStatus: document.getElementById("uploadStatus"),
+        uploadStatusText: document.getElementById("uploadStatusText"),
+        uploadStatusCount: document.getElementById("uploadStatusCount"),
+        uploadBar: document.getElementById("uploadBar"),
+        toastStack: document.getElementById("toastStack"),
+        musicButton: document.getElementById("musicButton"),
+        slideProgress: document.getElementById("slideProgress"),
+        slideProgressBar: document.getElementById("slideProgressBar")
+      };
+
+      const icons = {
+        heart: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"></path></svg>',
+        close: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg>'
+      };
+
+      function pad2(value) {
+        return String(value).padStart(2, "0");
+      }
+
+      function toDateInputValue(date) {
+        return `${date.getFullYear()}-${pad2(date.getMonth() + 1)}-${pad2(date.getDate())}`;
+      }
+
+      function parseDateInput(value) {
+        if (!value || !/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+          return null;
+        }
+        const [year, month, day] = value.split("-").map(Number);
+        const date = new Date(year, month - 1, day);
+        if (date.getFullYear() !== year || date.getMonth() !== month - 1 || date.getDate() !== day) {
+          return null;
+        }
+        return date;
+      }
+
+      function startOfToday() {
+        const now = new Date();
+        return new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      }
+
+      function defaultStartDate() {
+        const today = startOfToday();
+        return new Date(today.getFullYear() - 1, today.getMonth(), today.getDate());
+      }
+
+      function loadSettings() {
+        const fallback = {
+          myName: "我",
+          herName: "你",
+          startDate: toDateInputValue(defaultStartDate())
+        };
+        try {
+          const raw = localStorage.getItem(SETTINGS_KEY);
+          if (!raw) {
+            localStorage.setItem(SETTINGS_KEY, JSON.stringify(fallback));
+            return fallback;
+          }
+          const parsed = JSON.parse(raw);
+          return {
+            myName: String(parsed.myName || fallback.myName).slice(0, 18),
+            herName: String(parsed.herName || fallback.herName).slice(0, 18),
+            startDate: parseDateInput(parsed.startDate) ? parsed.startDate : fallback.startDate
+          };
+        } catch (error) {
+          return fallback;
+        }
+      }
+
+      function loadCustomMilestones() {
+        try {
+          const raw = localStorage.getItem(MILESTONES_KEY);
+          const parsed = raw ? JSON.parse(raw) : [];
+          return Array.isArray(parsed)
+            ? parsed.filter((item) => item && item.id && item.title && parseDateInput(item.date)).slice(0, 60)
+            : [];
+        } catch (error) {
+          return [];
+        }
+      }
+
+      function loadLetter() {
+        try {
+          const raw = localStorage.getItem(LETTER_KEY);
+          return raw ? String(raw).slice(0, MAX_LETTER) : DEFAULT_LETTER;
+        } catch (error) {
+          return DEFAULT_LETTER;
+        }
+      }
+
+      function saveLetter(text) {
+        try {
+          localStorage.setItem(LETTER_KEY, String(text).slice(0, MAX_LETTER));
+        } catch (error) {
+          toast("这封信暂时没能保存，请检查浏览器存储空间。", true);
+        }
+        scheduleCloudSync();
+      }
+
+      function saveCustomMilestones() {
+        try {
+          localStorage.setItem(MILESTONES_KEY, JSON.stringify(state.customMilestones));
+        } catch (error) {
+          toast("时间节点暂时没能保存。", true);
+        }
+        scheduleCloudSync();
+      }
+
+      function loadCloudConfig() {
+        try {
+          const raw = localStorage.getItem(CLOUD_CONFIG_KEY);
+          const parsed = raw ? JSON.parse(raw) : {};
+          return { token: String(parsed.token || "") };
+        } catch (error) {
+          return { token: "" };
+        }
+      }
+
+      function persistCloudToken(token) {
+        state.cloudToken = String(token || "").trim();
+        try {
+          if (state.cloudToken) {
+            localStorage.setItem(CLOUD_CONFIG_KEY, JSON.stringify({ token: state.cloudToken }));
+          } else {
+            localStorage.removeItem(CLOUD_CONFIG_KEY);
+          }
+        } catch (error) {
+          toast("令牌没能写入本地存储，本次打开期间仍可同步。", true);
+        }
+        updateCloudStatus();
+      }
+
+      function updateCloudStatus(message = "") {
+        if (!elements.cloudStatus) return;
+        const connected = Boolean(state.cloudToken);
+        elements.cloudStatus.classList.toggle("is-connected", connected);
+        if (message) {
+          elements.cloudStatus.textContent = message;
+          return;
+        }
+        if (!connected) {
+          elements.cloudStatus.textContent = "未连接";
+          return;
+        }
+        if (state.cloudLastSync) {
+          const time = new Date(state.cloudLastSync);
+          elements.cloudStatus.textContent = `已同步 ${pad2(time.getHours())}:${pad2(time.getMinutes())}`;
+        } else {
+          elements.cloudStatus.textContent = "已连接";
+        }
+      }
+
+      async function fetchCloudAlbum() {
+        const response = await fetch(`${CLOUD_RAW_MANIFEST_URL}?v=${Date.now()}`, {
+          cache: "no-store",
+          headers: { Accept: "application/json" }
+        });
+        if (response.status === 404) return null;
+        if (!response.ok) throw new Error(`云端相册读取失败（${response.status}）`);
+        const data = await response.json();
+        if (!data || data.version !== 1 || !Array.isArray(data.photos)) return null;
+        return data;
+      }
+
+      function normalizeRemotePhoto(photo) {
+        if (!photo || !photo.id) return null;
+        const id = String(photo.id);
+        const defaultRemote = `${CLOUD_RAW_PHOTO_BASE}/${encodeURIComponent(id)}.jpg`;
+        const defaultThumb = `${CLOUD_RAW_PHOTO_BASE}/${encodeURIComponent(id)}-thumb.jpg`;
+        let remoteUrl = defaultRemote;
+        let thumbUrl = defaultThumb;
+        try {
+          remoteUrl = new URL(photo.remoteUrl || defaultRemote, `${CLOUD_RAW_BASE}/`).href;
+          thumbUrl = new URL(photo.thumbUrl || photo.remoteUrl || defaultThumb, `${CLOUD_RAW_BASE}/`).href;
+        } catch (error) {
+          // Keep the constructed raw URLs if an old manifest contains an invalid URL.
+        }
+        return {
+          id,
+          name: String(photo.name || "memory.jpg").slice(0, 160),
+          caption: String(photo.caption || "").slice(0, MAX_CAPTION),
+          date: parseDateInput(photo.date) ? photo.date : toDateInputValue(new Date()),
+          favorite: Boolean(photo.favorite),
+          createdAt: photo.createdAt || new Date().toISOString(),
+          updatedAt: photo.updatedAt || photo.createdAt || new Date().toISOString(),
+          width: Number(photo.width) || 0,
+          height: Number(photo.height) || 0,
+          remoteUrl,
+          thumbUrl,
+          cloudSynced: true
+        };
+      }
+
+      function applyCloudAlbum(album) {
+        if (album.settings && typeof album.settings === "object") {
+          const fallback = loadSettings();
+          state.settings = {
+            myName: String(album.settings.myName || fallback.myName).slice(0, 18),
+            herName: String(album.settings.herName || fallback.herName).slice(0, 18),
+            startDate: parseDateInput(album.settings.startDate) ? album.settings.startDate : fallback.startDate
+          };
+          try {
+            localStorage.setItem(SETTINGS_KEY, JSON.stringify(state.settings));
+          } catch (error) {}
+        }
+        if (typeof album.letter === "string") {
+          const letter = album.letter.slice(0, MAX_LETTER);
+          elements.letterBody.textContent = letter;
+          try {
+            localStorage.setItem(LETTER_KEY, letter);
+          } catch (error) {}
+        }
+        if (Array.isArray(album.milestones)) {
+          state.customMilestones = album.milestones
+            .filter((item) => item && item.id && item.title && parseDateInput(item.date))
+            .slice(0, 60);
+          try {
+            localStorage.setItem(MILESTONES_KEY, JSON.stringify(state.customMilestones));
+          } catch (error) {}
+        }
+        if (album.updatedAt) state.cloudLastSync = album.updatedAt;
+        return album.photos.map(normalizeRemotePhoto).filter(Boolean);
+      }
+
+      function encodeRepoPath(path) {
+        return String(path).split("/").map(encodeURIComponent).join("/");
+      }
+
+      async function githubContents(path, options = {}) {
+        if (!state.cloudToken) throw new Error("尚未连接 GitHub");
+        const method = options.method || "GET";
+        const url = `${CLOUD_API_BASE}/${encodeRepoPath(path)}${method === "GET" ? `?ref=${encodeURIComponent(CLOUD_BRANCH)}` : ""}`;
+        const response = await fetch(url, {
+          method,
+          cache: "no-store",
+          headers: {
+            Authorization: `Bearer ${state.cloudToken}`,
+            Accept: "application/vnd.github+json",
+            "Content-Type": "application/json",
+            "X-GitHub-Api-Version": "2022-11-28"
+          },
+          body: options.body ? JSON.stringify(options.body) : undefined
+        });
+        if (method === "GET" && response.status === 404) return null;
+        if (response.status === 204) return true;
+        if (!response.ok) {
+          let detail = "";
+          try {
+            const payload = await response.json();
+            detail = payload.message || "";
+          } catch (error) {}
+          if (response.status === 401) detail = "令牌无效或已过期";
+          if (response.status === 403) detail = "令牌没有照片仓库的写入权限";
+          throw new Error(detail || `GitHub 请求失败（${response.status}）`);
+        }
+        return response.json();
+      }
+
+      async function uploadRepositoryFile(path, base64Content, message) {
+        const existing = await githubContents(path);
+        const body = {
+          message,
+          content: base64Content,
+          branch: CLOUD_BRANCH
+        };
+        if (existing && existing.sha) body.sha = existing.sha;
+        return githubContents(path, { method: "PUT", body });
+      }
+
+      async function deleteRepositoryFile(path, message) {
+        const existing = await githubContents(path);
+        if (!existing || !existing.sha) return;
+        await githubContents(path, {
+          method: "DELETE",
+          body: { message, sha: existing.sha, branch: CLOUD_BRANCH }
+        });
+      }
+
+      function blobToBase64(blob) {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => {
+            const result = String(reader.result || "");
+            resolve(result.includes(",") ? result.split(",")[1] : result);
+          };
+          reader.onerror = () => reject(reader.error || new Error("无法读取图片数据"));
+          reader.readAsDataURL(blob);
+        });
+      }
+
+      function serializeAlbum() {
+        const photos = state.photos
+          .filter((photo) => photo.remoteUrl)
+          .map((photo) => ({
+            id: photo.id,
+            name: photo.name,
+            caption: photo.caption || "",
+            date: photo.date,
+            favorite: Boolean(photo.favorite),
+            createdAt: photo.createdAt,
+            updatedAt: photo.updatedAt || photo.createdAt,
+            width: Number(photo.width) || 0,
+            height: Number(photo.height) || 0,
+            remoteUrl: photo.remoteUrl,
+            thumbUrl: photo.thumbUrl || photo.remoteUrl
+          }));
+        return {
+          version: 1,
+          updatedAt: new Date().toISOString(),
+          settings: state.settings,
+          letter: elements.letterBody.textContent || DEFAULT_LETTER,
+          milestones: state.customMilestones,
+          photos
+        };
+      }
+
+      async function syncCloudManifest() {
+        if (!state.cloudToken) return false;
+        if (state.cloudSyncing) {
+          state.cloudSyncPending = true;
+          return false;
+        }
+        state.cloudSyncing = true;
+        updateCloudStatus("同步中…");
+        try {
+          const content = await blobToBase64(new Blob([JSON.stringify(serializeAlbum(), null, 2)], {
+            type: "application/json;charset=utf-8"
+          }));
+          await uploadRepositoryFile(CLOUD_MANIFEST_PATH, content, "Update anniversary album");
+          state.cloudLastSync = new Date().toISOString();
+          updateCloudStatus();
+          return true;
+        } catch (error) {
+          updateCloudStatus("同步失败");
+          toast(`云端同步失败：${error.message}`, true);
+          return false;
+        } finally {
+          state.cloudSyncing = false;
+          if (state.cloudSyncPending) {
+            state.cloudSyncPending = false;
+            window.setTimeout(() => syncCloudManifest(), 400);
+          }
+        }
+      }
+
+      function scheduleCloudSync() {
+        if (!state.cloudToken) return;
+        window.clearTimeout(state.cloudSyncTimer);
+        state.cloudSyncTimer = window.setTimeout(() => syncCloudManifest(), 700);
+      }
+
+      async function createResizedJpeg(file, maxSide, quality) {
+        const url = URL.createObjectURL(file);
+        try {
+          const image = await new Promise((resolve, reject) => {
+            const img = new Image();
+            img.onload = () => resolve(img);
+            img.onerror = () => reject(new Error("图片格式无法读取，请转成 JPG 或 PNG"));
+            img.src = url;
+          });
+          const scale = Math.min(1, maxSide / Math.max(image.naturalWidth, image.naturalHeight));
+          const canvas = document.createElement("canvas");
+          canvas.width = Math.max(1, Math.round(image.naturalWidth * scale));
+          canvas.height = Math.max(1, Math.round(image.naturalHeight * scale));
+          const context = canvas.getContext("2d", { alpha: false });
+          context.fillStyle = "#f8f1e7";
+          context.fillRect(0, 0, canvas.width, canvas.height);
+          context.imageSmoothingQuality = "high";
+          context.drawImage(image, 0, 0, canvas.width, canvas.height);
+          const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/jpeg", quality));
+          if (!blob) throw new Error("图片压缩失败");
+          return blob;
+        } finally {
+          URL.revokeObjectURL(url);
+        }
+      }
+
+      async function uploadPhotoAssets(photo) {
+        if (!photo.image) return false;
+        const fullBlob = await createResizedJpeg(photo.image, 1700, 0.86);
+        const thumbBlob = photo.thumb || await createResizedJpeg(photo.image, 820, 0.82);
+        const fullBase64 = await blobToBase64(fullBlob);
+        const thumbBase64 = await blobToBase64(thumbBlob);
+        await uploadRepositoryFile(`photos/${photo.id}.jpg`, fullBase64, `Add photo ${photo.id}`);
+        await uploadRepositoryFile(`photos/${photo.id}-thumb.jpg`, thumbBase64, `Add thumbnail ${photo.id}`);
+        photo.remoteUrl = `${CLOUD_RAW_PHOTO_BASE}/${encodeURIComponent(photo.id)}.jpg`;
+        photo.thumbUrl = `${CLOUD_RAW_PHOTO_BASE}/${encodeURIComponent(photo.id)}-thumb.jpg`;
+        photo.cloudSynced = true;
+        photo.updatedAt = new Date().toISOString();
+        return true;
+      }
+
+      async function publishAllToCloud() {
+        if (!state.cloudToken) {
+          toast("请先在设置中填写 GitHub 访问令牌。", true, 5200);
+          openSettings();
+          return;
+        }
+        const pending = state.photos.filter((photo) => photo.image && !photo.cloudSynced);
+        elements.uploadStatus.hidden = false;
+        elements.uploadStatusText.textContent = pending.length ? "正在同步照片到在线相册…" : "正在同步相册文字与设置…";
+        elements.uploadBar.style.width = "0%";
+        let uploaded = 0;
+        try {
+          for (let index = 0; index < pending.length; index += 1) {
+            const photo = pending[index];
+            elements.uploadStatusCount.textContent = `${index + 1} / ${pending.length}`;
+            elements.uploadStatusText.textContent = "正在同步照片到在线相册…";
+            await uploadPhotoAssets(photo);
+            await savePhoto(photo);
+            uploaded += 1;
+            elements.uploadBar.style.width = `${Math.round(((index + 1) / pending.length) * 100)}%`;
+          }
+          const synced = await syncCloudManifest();
+          if (synced) {
+            toast(pending.length ? `已同步 ${uploaded} 张照片，链接现在可以在其他设备打开。` : "在线相册已经是最新版本。");
+            renderAll();
+          }
+        } catch (error) {
+          updateCloudStatus("同步失败");
+          toast(`同步失败：${error.message}`, true, 6000);
+        } finally {
+          window.setTimeout(() => {
+            elements.uploadStatus.hidden = true;
+          }, 500);
+        }
+      }
+
+      async function deleteCloudPhotoAssets(photo) {
+        if (!state.cloudToken) return;
+        await deleteRepositoryFile(`photos/${photo.id}.jpg`, `Delete photo ${photo.id}`);
+        await deleteRepositoryFile(`photos/${photo.id}-thumb.jpg`, `Delete thumbnail ${photo.id}`);
+      }
+
+      function escapeHTML(value) {
+        return String(value)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+      }
+
+      function formatDateShort(value) {
+        const date = typeof value === "string" ? parseDateInput(value) : value;
+        if (!date) return "";
+        return `${date.getFullYear()}.${pad2(date.getMonth() + 1)}.${pad2(date.getDate())}`;
+      }
+
+      function formatDateLong(value) {
+        const date = typeof value === "string" ? parseDateInput(value) : value;
+        if (!date) return "";
+        return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
+      }
+
+      function daysBetween(start, end) {
+        const startDay = new Date(start.getFullYear(), start.getMonth(), start.getDate());
+        const endDay = new Date(end.getFullYear(), end.getMonth(), end.getDate());
+        return Math.floor((endDay - startDay) / ONE_DAY);
+      }
+
+      function getNextAnniversary(start, now = new Date()) {
+        const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        if (start > today) {
+          return { date: start, label: "故事开始", days: daysBetween(today, start) };
+        }
+        let year = now.getFullYear();
+        let next = new Date(year, start.getMonth(), start.getDate());
+        if (next < today) {
+          year += 1;
+          next = new Date(year, start.getMonth(), start.getDate());
+        }
+        const years = year - start.getFullYear();
+        return {
+          date: next,
+          label: years === 1 ? "一周年" : `${years} 周年`,
+          days: daysBetween(today, next)
+        };
+      }
+
+      function getElapsedParts() {
+        const start = parseDateInput(state.settings.startDate);
+        const now = new Date();
+        let diff = Math.max(0, now - start);
+        const days = Math.floor(diff / ONE_DAY);
+        diff -= days * ONE_DAY;
+        const hours = Math.floor(diff / 3600000);
+        diff -= hours * 3600000;
+        const minutes = Math.floor(diff / 60000);
+        diff -= minutes * 60000;
+        const seconds = Math.floor(diff / 1000);
+        return { days, hours, minutes, seconds, future: start > now, start, now };
+      }
+
+      function updateTimeDisplay() {
+        const parts = getElapsedParts();
+        if (parts.future) {
+          elsSet(elements.heroDays, `${daysBetween(parts.now, parts.start)}`);
+          elements.liveDuration.textContent = `还有 ${daysBetween(parts.now, parts.start)} 天开始`;
+          elements.statDays.textContent = "故事即将开始";
+        } else {
+          animateNumber(elements.heroDays, parts.days);
+          elements.liveDuration.textContent = `${parts.days} 天 ${pad2(parts.hours)}:${pad2(parts.minutes)}:${pad2(parts.seconds)}`;
+          elements.statDays.textContent = `${parts.days} 天`;
+        }
+        const next = getNextAnniversary(parts.start, parts.now);
+        elements.statNext.textContent = next.days === 0 ? "就是今天" : `${next.days} 天`;
+        const footerYear = document.getElementById("footerYear");
+        footerYear.textContent = String(parts.now.getFullYear());
+      }
+
+      function elsSet(element, value) {
+        if (element) element.textContent = String(value);
+      }
+
+      function animateNumber(element, target) {
+        const previous = Number(element.dataset.value || 0);
+        if (previous === target) return;
+        element.dataset.value = String(target);
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          element.textContent = String(target);
+          return;
+        }
+        const start = performance.now();
+        const duration = 700;
+        const from = previous;
+        function step(now) {
+          const progress = Math.min(1, (now - start) / duration);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          element.textContent = String(Math.round(from + (target - from) * eased));
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+
+      function updateHeaderAndDates() {
+        const { myName, herName, startDate } = state.settings;
+        elements.brandNames.textContent = `${myName} & ${herName}`;
+        elements.footerNames.textContent = `${myName} & ${herName} · 第一年`;
+        elements.letterSignature.textContent = `${myName} 写给 ${herName} · 一周年`;
+        document.title = `${myName} & ${herName} · 我们的第一年`;
+        const start = parseDateInput(startDate);
+        const today = new Date();
+        elements.heroDateRange.textContent = `${formatDateShort(start)} — ${formatDateShort(today)}`;
+        updateTimeDisplay();
+      }
+
+      function openDB() {
+        return new Promise((resolve, reject) => {
+          if (!("indexedDB" in window)) {
+            reject(new Error("当前浏览器不支持本地照片存储"));
+            return;
+          }
+          const request = indexedDB.open(DB_NAME, DB_VERSION);
+          request.onupgradeneeded = () => {
+            const db = request.result;
+            if (!db.objectStoreNames.contains(STORE_NAME)) {
+              const store = db.createObjectStore(STORE_NAME, { keyPath: "id" });
+              store.createIndex("createdAt", "createdAt");
+              store.createIndex("date", "date");
+            }
+          };
+          request.onsuccess = () => resolve(request.result);
+          request.onerror = () => reject(request.error || new Error("无法打开本地相册"));
+        });
+      }
+
+      function dbGetAll(db) {
+        return new Promise((resolve, reject) => {
+          const transaction = db.transaction(STORE_NAME, "readonly");
+          const request = transaction.objectStore(STORE_NAME).getAll();
+          request.onsuccess = () => resolve(request.result || []);
+          request.onerror = () => reject(request.error);
+        });
+      }
+
+      function dbPut(db, record) {
+        return new Promise((resolve, reject) => {
+          const transaction = db.transaction(STORE_NAME, "readwrite");
+          transaction.objectStore(STORE_NAME).put(record);
+          transaction.oncomplete = () => resolve(record);
+          transaction.onerror = () => reject(transaction.error);
+        });
+      }
+
+      function dbDelete(db, id) {
+        return new Promise((resolve, reject) => {
+          const transaction = db.transaction(STORE_NAME, "readwrite");
+          transaction.objectStore(STORE_NAME).delete(id);
+          transaction.oncomplete = () => resolve();
+          transaction.onerror = () => reject(transaction.error);
+        });
+      }
+
+      async function initData() {
+        state.settings = loadSettings();
+        state.customMilestones = loadCustomMilestones();
+        state.cloudToken = loadCloudConfig().token;
+        state.letterOpen = false;
+        elements.letterBody.textContent = loadLetter();
+        let localPhotos = [];
+        let localDbError = null;
+        try {
+          const db = await openDB();
+          state.db = db;
+          localPhotos = await dbGetAll(db);
+        } catch (error) {
+          localDbError = error;
+          state.dbUnavailable = true;
+        }
+
+        let cloudAlbum = null;
+        if (location.protocol === "http:" || location.protocol === "https:") {
+          try {
+            cloudAlbum = await fetchCloudAlbum();
+          } catch (error) {
+            if (state.cloudToken) {
+              toast(`云端相册暂时无法读取：${error.message}`, true, 5000);
+            }
+          }
+        }
+
+        if (cloudAlbum) {
+          const remotePhotos = applyCloudAlbum(cloudAlbum);
+          if (state.cloudToken) {
+            const localById = new Map(localPhotos.map((photo) => [photo.id, photo]));
+            const remoteIds = new Set(remotePhotos.map((photo) => photo.id));
+            state.photos = remotePhotos.map((photo) => {
+              const local = localById.get(photo.id);
+              return local ? { ...photo, image: local.image, thumb: local.thumb || local.image } : photo;
+            }).concat(localPhotos.filter((photo) => !remoteIds.has(photo.id)));
+          } else {
+            state.photos = remotePhotos;
+          }
+        } else {
+          state.photos = localPhotos;
+          if (localDbError) {
+            toast("本地存储不可用：照片只在本次打开时有效，建议使用在线版链接。", true, 7000);
+          }
+        }
+        state.photos.sort((a, b) => String(b.createdAt).localeCompare(String(a.createdAt)));
+        updateCloudStatus();
+        updateHeaderAndDates();
+        renderAll();
+      }
+
+      function getVisiblePhotos() {
+        const now = Date.now();
+        let list = state.photos.slice();
+        if (state.filter === "favorite") {
+          list = list.filter((photo) => photo.favorite);
+        } else if (state.filter === "recent") {
+          list = list.filter((photo) => now - new Date(photo.createdAt).getTime() <= 30 * ONE_DAY);
+        }
+        list.sort((a, b) => {
+          const dateA = `${a.date || ""} ${a.createdAt || ""}`;
+          const dateB = `${b.date || ""} ${b.createdAt || ""}`;
+          return state.sort === "asc" ? dateA.localeCompare(dateB) : dateB.localeCompare(dateA);
+        });
+        return list;
+      }
+
+      function getObjectUrl(photo, thumb = false) {
+        if (photo.image || photo.thumb) {
+          const key = `${photo.id}:${thumb ? "thumb" : "full"}`;
+          if (!objectUrls.has(key)) {
+            const blob = thumb ? (photo.thumb || photo.image) : (photo.image || photo.thumb);
+            if (blob) objectUrls.set(key, URL.createObjectURL(blob));
+          }
+          if (objectUrls.has(key)) return objectUrls.get(key);
+        }
+        if (photo.remoteUrl) {
+          return thumb ? (photo.thumbUrl || photo.remoteUrl) : photo.remoteUrl;
+        }
+        return "";
+      }
+
+      function revokeObjectUrls(photoId) {
+        for (const suffix of ["thumb", "full"]) {
+          const key = `${photoId}:${suffix}`;
+          if (objectUrls.has(key)) {
+            URL.revokeObjectURL(objectUrls.get(key));
+            objectUrls.delete(key);
+          }
+        }
+      }
+
+      function renderStats() {
+        const favorites = state.photos.filter((photo) => photo.favorite).length;
+        const recent = state.photos.filter((photo) => Date.now() - new Date(photo.createdAt).getTime() <= 30 * ONE_DAY).length;
+        elements.statPhotos.textContent = `${state.photos.length} 张`;
+        elements.statFavorites.textContent = `${favorites} 张`;
+        elements.countAll.textContent = String(state.photos.length);
+        elements.countFavorite.textContent = String(favorites);
+        elements.countRecent.textContent = String(recent);
+      }
+
+      function renderGallery() {
+        renderStats();
+        const allVisible = getVisiblePhotos();
+        const visible = allVisible.slice(0, state.galleryLimit);
+        elements.galleryGrid.className = `gallery ${state.view}`;
+        elements.galleryGrid.innerHTML = "";
+        const hasPhotos = state.photos.length > 0;
+        elements.emptyGallery.hidden = hasPhotos;
+        elements.filteredEmpty.hidden = hasPhotos && allVisible.length > 0;
+        elements.galleryGrid.hidden = !hasPhotos || allVisible.length === 0;
+        elements.loadMoreButton.hidden = !hasPhotos || allVisible.length <= visible.length;
+        elements.loadMoreButton.textContent = allVisible.length > visible.length
+          ? `继续翻开更多回忆 · 还有 ${allVisible.length - visible.length} 张`
+          : "";
+
+        if (hasPhotos && allVisible.length === 0) {
+          elements.filteredEmptyText.textContent = state.filter === "favorite"
+            ? "还没有被标上“珍藏”的照片，去相册里点亮一颗心吧。"
+            : "最近 30 天还没有新照片，翻翻过去的回忆也很好。";
+        }
+
+        if (!visible.length) return;
+
+        const fragment = document.createDocumentFragment();
+        visible.forEach((photo, index) => {
+          const card = document.createElement("article");
+          card.className = "photo-card reveal";
+          card.dataset.id = photo.id;
+          const tilt = index % 3 === 0 ? -0.8 : index % 3 === 1 ? 0.65 : 0.1;
+          card.style.setProperty("--tilt", `${tilt}deg`);
+          const caption = photo.caption || "给这一刻写一句话…";
+          const aspect = photo.width && photo.height ? Math.min(1.45, Math.max(0.7, photo.width / photo.height)) : 0.82;
+          const src = getObjectUrl(photo, true);
+          card.innerHTML = `
+            <button class="photo-open" type="button" data-action="open" aria-label="查看照片：${escapeHTML(photo.caption || photo.name || "未命名照片")}">
+              <img src="${src}" alt="${escapeHTML(photo.caption || photo.name || "我们的回忆照片")}" loading="lazy" decoding="async" style="aspect-ratio:${aspect};object-fit:cover">
+            </button>
+            <button class="card-favorite ${photo.favorite ? "is-favorite" : ""}" type="button" data-action="favorite" aria-label="${photo.favorite ? "取消珍藏" : "珍藏这张照片"}" aria-pressed="${photo.favorite ? "true" : "false"}">
+              ${icons.heart}
+            </button>
+            <div class="photo-caption-row">
+              <p class="photo-caption ${photo.caption ? "" : "is-empty"}">${escapeHTML(caption)}</p>
+              <time class="photo-date" datetime="${escapeHTML(photo.date || "")}">${escapeHTML(formatDateShort(photo.date))}</time>
+            </div>
+          `;
+          fragment.appendChild(card);
+        });
+        elements.galleryGrid.appendChild(fragment);
+        observeReveals(elements.galleryGrid);
+      }
+
+      function renderHeroPhotos() {
+        const latest = state.photos
+          .slice()
+          .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+          .slice(0, HEART_SLOTS.length);
+
+        elements.heartPhotos.innerHTML = HEART_SLOTS.map((slot, index) => {
+          const photo = latest[index];
+          const style = `--x:${slot.x}%;--y:${slot.y}%;--w:${slot.w}%;--r:${slot.r}deg;--z:${slot.z}`;
+          if (!photo) {
+            return `
+              <label class="heart-photo heart-photo-empty" for="photoInput" style="${style}" aria-label="上传照片，填满这个心形位置">
+                <span class="heart-photo-image ph-${index % 4}"><span class="heart-empty-mark">♡</span></span>
+                <span class="heart-photo-caption">留一个位置给回忆</span>
+              </label>
+            `;
+          }
+          const src = getObjectUrl(photo, true);
+          const caption = photo.caption || "我们的回忆";
+          return `
+            <button class="heart-photo" type="button" data-heart-open="${escapeHTML(photo.id)}" style="${style}" aria-label="查看照片：${escapeHTML(caption)}">
+              <span class="heart-photo-image"><img src="${src}" alt="${escapeHTML(caption)}" loading="${index < 5 ? "eager" : "lazy"}" decoding="async"></span>
+              <span class="heart-photo-caption">${escapeHTML(caption.slice(0, 14))}</span>
+            </button>
+          `;
+        }).join("");
+
+        if (!state.photos.length) {
+          elements.heartStatus.textContent = "上传照片，拼成我们的心";
+        } else if (latest.length < HEART_SLOTS.length) {
+          elements.heartStatus.textContent = `已拼好 ${latest.length} 张 · 还可以放进更多回忆`;
+        } else {
+          elements.heartStatus.textContent = `我们的心，已收藏 ${latest.length} 张回忆`;
+        }
+      }
+
+      function updatePhotoPresentation(photo) {
+        const caption = photo.caption || "给这一刻写一句话…";
+        const card = [...elements.galleryGrid.querySelectorAll(".photo-card")]
+          .find((item) => item.dataset.id === photo.id);
+        if (card) {
+          const captionElement = card.querySelector(".photo-caption");
+          const dateElement = card.querySelector(".photo-date");
+          const image = card.querySelector(".photo-open img");
+          const openButton = card.querySelector(".photo-open");
+          const favoriteButton = card.querySelector(".card-favorite");
+          if (captionElement) {
+            captionElement.textContent = caption;
+            captionElement.classList.toggle("is-empty", !photo.caption);
+          }
+          if (dateElement) {
+            dateElement.textContent = formatDateShort(photo.date);
+            dateElement.dateTime = photo.date || "";
+          }
+          if (image) image.alt = photo.caption || photo.name || "我们的回忆照片";
+          if (openButton) openButton.setAttribute("aria-label", `查看照片：${photo.caption || photo.name || "未命名照片"}`);
+          if (favoriteButton) {
+            favoriteButton.classList.toggle("is-favorite", Boolean(photo.favorite));
+            favoriteButton.setAttribute("aria-pressed", photo.favorite ? "true" : "false");
+            favoriteButton.setAttribute("aria-label", photo.favorite ? "取消珍藏" : "珍藏这张照片");
+          }
+        }
+
+        const heartPhoto = [...elements.heartPhotos.querySelectorAll("[data-heart-open]")]
+          .find((item) => item.dataset.heartOpen === photo.id);
+        if (heartPhoto) {
+          const heartCaption = heartPhoto.querySelector(".heart-photo-caption");
+          const heartImage = heartPhoto.querySelector("img");
+          const shortCaption = photo.caption || "我们的回忆";
+          if (heartCaption) heartCaption.textContent = shortCaption.slice(0, 14);
+          if (heartImage) heartImage.alt = shortCaption;
+          heartPhoto.setAttribute("aria-label", `查看照片：${shortCaption}`);
+        }
+      }
+
+      function getMilestones() {
+        const start = parseDateInput(state.settings.startDate);
+        const addDays = (date, amount) => {
+          const result = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+          result.setDate(result.getDate() + amount);
+          return result;
+        };
+        const defaults = [
+          {
+            id: "start",
+            date: toDateInputValue(start),
+            title: "故事开始",
+            text: "从这一天起，我的日历里多了一个最重要的日子。",
+            default: true
+          },
+          {
+            id: "day100",
+            date: toDateInputValue(addDays(start, 99)),
+            title: "第 100 天",
+            text: "从心动到心安，我们慢慢成为了彼此的习惯。",
+            default: true
+          },
+          {
+            id: "day200",
+            date: toDateInputValue(addDays(start, 199)),
+            title: "第 200 天",
+            text: "一起吃过很多顿饭，也一起看过很多次晚霞。",
+            default: true
+          },
+          {
+            id: "firstYear",
+            date: toDateInputValue(addDays(start, 365)),
+            title: "一周年",
+            text: "四季走完一轮，下一轮也请多多指教。",
+            default: true
+          }
+        ];
+        return defaults.concat(state.customMilestones).sort((a, b) => a.date.localeCompare(b.date));
+      }
+
+      function renderTimeline() {
+        const today = startOfToday();
+        const milestones = getMilestones();
+        elements.timelineTrack.innerHTML = milestones.map((item) => {
+          const date = parseDateInput(item.date);
+          const isFuture = date > today;
+          return `
+            <article class="timeline-card ${isFuture ? "is-future" : ""}" data-milestone-id="${escapeHTML(item.id)}">
+              ${item.default ? "" : `
+                <button class="timeline-delete" type="button" data-delete-milestone="${escapeHTML(item.id)}" aria-label="删除${escapeHTML(item.title)}">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg>
+                </button>
+              `}
+              <span class="timeline-date">${escapeHTML(formatDateShort(date))}${isFuture ? " · 未来" : ""}</span>
+              <h3>${escapeHTML(item.title)}</h3>
+              <p>${escapeHTML(item.text || "这里留给未来的我们。")}</p>
+            </article>
+          `;
+        }).join("") + `
+          <button class="add-milestone" type="button" id="addMilestoneButton">
+            <span><i>＋</i>添加我们的节点</span>
+          </button>
+        `;
+        const addButton = document.getElementById("addMilestoneButton");
+        if (addButton) {
+          addButton.addEventListener("click", openMilestoneEditor);
+        }
+      }
+
+      function renderAll() {
+        renderGallery();
+        renderHeroPhotos();
+        renderTimeline();
+        updateHeaderAndDates();
+      }
+
+      function observeReveals(root = document) {
+        const targets = root.querySelectorAll(".reveal:not(.is-visible)");
+        if (!("IntersectionObserver" in window)) {
+          targets.forEach((element) => element.classList.add("is-visible"));
+          return;
+        }
+        if (!observeReveals.observer) {
+          observeReveals.observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observeReveals.observer.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.08, rootMargin: "0px 0px -30px" });
+        }
+        targets.forEach((element) => observeReveals.observer.observe(element));
+      }
+
+      function setFilter(filter) {
+        state.filter = filter;
+        state.galleryLimit = GALLERY_PAGE_SIZE;
+        document.querySelectorAll("[data-filter]").forEach((button) => {
+          const active = button.dataset.filter === filter;
+          button.classList.toggle("is-active", active);
+          button.setAttribute("aria-pressed", active ? "true" : "false");
+        });
+        renderGallery();
+      }
+
+      function setView(view) {
+        state.view = view;
+        state.galleryLimit = GALLERY_PAGE_SIZE;
+        document.querySelectorAll("[data-view]").forEach((button) => {
+          const active = button.dataset.view === view;
+          button.classList.toggle("is-active", active);
+          button.setAttribute("aria-pressed", active ? "true" : "false");
+        });
+        renderGallery();
+      }
+
+      function toast(message, isError = false, duration = 3200) {
+        const item = document.createElement("div");
+        item.className = `toast${isError ? " is-error" : ""}`;
+        item.textContent = message;
+        elements.toastStack.appendChild(item);
+        window.setTimeout(() => {
+          item.classList.add("is-leaving");
+          window.setTimeout(() => item.remove(), 260);
+        }, duration);
+      }
+
+      function burstHearts(x, y, count = 10) {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        for (let index = 0; index < count; index += 1) {
+          const heart = document.createElement("span");
+          heart.className = "heart-particle";
+          heart.textContent = index % 3 === 0 ? "♡" : "♥";
+          const angle = (Math.PI * 2 * index) / count + Math.random() * 0.45;
+          const distance = 38 + Math.random() * 70;
+          heart.style.left = `${x}px`;
+          heart.style.top = `${y}px`;
+          heart.style.setProperty("--dx", `${Math.cos(angle) * distance}px`);
+          heart.style.setProperty("--dy", `${Math.sin(angle) * distance - 30}px`);
+          heart.style.setProperty("--rot", `${Math.random() * 80 - 40}deg`);
+          heart.style.setProperty("--size", `${12 + Math.random() * 12}px`);
+          heart.style.color = index % 2 ? "#b95c5e" : "#d99d91";
+          document.body.appendChild(heart);
+          window.setTimeout(() => heart.remove(), 1150);
+        }
+      }
+
+      async function savePhoto(photo) {
+        if (state.dbUnavailable) return photo;
+        try {
+          if (!state.db) {
+            state.db = await openDB();
+          }
+          return await dbPut(state.db, photo);
+        } catch (error) {
+          state.dbUnavailable = true;
+          if (!state.storageWarningShown) {
+            state.storageWarningShown = true;
+            toast("浏览器拒绝了本地存储：照片只会在本次打开时保留，建议使用在线版链接。", true, 7000);
+          }
+          return photo;
+        }
+      }
+
+      async function toggleFavorite(id, event) {
+        const photo = state.photos.find((item) => item.id === id);
+        if (!photo) return;
+        photo.favorite = !photo.favorite;
+        photo.updatedAt = new Date().toISOString();
+        try {
+          await savePhoto(photo);
+        } catch (error) {
+          toast("珍藏状态暂时没能保存。", true);
+        }
+        if (photo.favorite && event) {
+          burstHearts(event.clientX, event.clientY, 9);
+          playChime();
+        }
+        renderStats();
+        if (state.filter === "favorite") {
+          renderGallery();
+        } else {
+          updatePhotoPresentation(photo);
+        }
+        if (elements.lightbox.open) {
+          updateLightboxChrome();
+        }
+        scheduleCloudSync();
+      }
+
+      function toggleLetter(force) {
+        state.letterOpen = typeof force === "boolean" ? force : !state.letterOpen;
+        elements.letterPaper.classList.toggle("is-open", state.letterOpen);
+        elements.toggleLetterButton.querySelector("span").textContent = state.letterOpen ? "收起信纸" : "展开读完";
+      }
+
+      function openSettings() {
+        elements.myNameInput.value = state.settings.myName;
+        elements.herNameInput.value = state.settings.herName;
+        elements.startDateInput.value = state.settings.startDate;
+        elements.githubTokenInput.value = "";
+        elements.githubTokenInput.placeholder = state.cloudToken
+          ? "已连接 · 粘贴新令牌可替换"
+          : "填写后保存，令牌只留在这台电脑";
+        updateCloudStatus();
+        elements.settingsDialog.showModal();
+      }
+
+      function saveSettings(event) {
+        event.preventDefault();
+        const myName = elements.myNameInput.value.trim() || "我";
+        const herName = elements.herNameInput.value.trim() || "你";
+        const startDateValue = elements.startDateInput.value;
+        if (!parseDateInput(startDateValue)) {
+          toast("请选择一个有效的纪念日日期。", true);
+          return;
+        }
+        const newToken = elements.githubTokenInput.value.trim();
+        if (newToken) {
+          persistCloudToken(newToken);
+        }
+        state.settings = { myName, herName, startDate: startDateValue };
+        try {
+          localStorage.setItem(SETTINGS_KEY, JSON.stringify(state.settings));
+        } catch (error) {
+          toast("设置暂时没能保存。", true);
+        }
+        elements.settingsDialog.close();
+        updateHeaderAndDates();
+        renderTimeline();
+        if (newToken) {
+          toast("已连接云端，正在同步相册…");
+          publishAllToCloud();
+        } else {
+          scheduleCloudSync();
+          toast("纪念日和称呼已经更新。");
+        }
+      }
+
+      function openLetterEditor() {
+        state.editorMode = "letter";
+        elements.editorTitle.textContent = "改写这封信";
+        elements.editorDescription.textContent = "写给未来翻到这一页的我们。";
+        elements.editorTextLabel.textContent = "信的内容";
+        elements.editorTitleField.hidden = true;
+        elements.editorDateField.hidden = true;
+        elements.editorText.value = loadLetter();
+        elements.textEditorDialog.showModal();
+        window.setTimeout(() => elements.editorText.focus(), 120);
+      }
+
+      function openMilestoneEditor() {
+        state.editorMode = "milestone";
+        elements.editorTitle.textContent = "添加一个时光节点";
+        elements.editorDescription.textContent = "把值得记住的那一天，放进我们的时间线。";
+        elements.editorTextLabel.textContent = "这一天的故事";
+        elements.editorTitleField.hidden = false;
+        elements.editorDateField.hidden = false;
+        elements.milestoneTitleInput.value = "";
+        elements.milestoneDateInput.value = toDateInputValue(new Date());
+        elements.editorText.value = "";
+        elements.textEditorDialog.showModal();
+        window.setTimeout(() => elements.milestoneTitleInput.focus(), 120);
+      }
+
+      function saveTextEditor(event) {
+        event.preventDefault();
+        const text = elements.editorText.value.trim();
+        if (state.editorMode === "letter") {
+          saveLetter(text || DEFAULT_LETTER);
+          elements.letterBody.textContent = text || DEFAULT_LETTER;
+          elements.textEditorDialog.close();
+          toast("这封信已经好好收起来了。");
+          return;
+        }
+        if (state.editorMode === "milestone") {
+          const title = elements.milestoneTitleInput.value.trim();
+          const date = elements.milestoneDateInput.value;
+          if (!title) {
+            toast("先给这个节点起一个名字吧。", true);
+            elements.milestoneTitleInput.focus();
+            return;
+          }
+          if (!parseDateInput(date)) {
+            toast("请选择一个有效的日期。", true);
+            return;
+          }
+          state.customMilestones.push({
+            id: `custom-${Date.now()}-${Math.random().toString(16).slice(2)}`,
+            title: title.slice(0, 40),
+            date,
+            text: text.slice(0, 500),
+            createdAt: new Date().toISOString()
+          });
+          saveCustomMilestones();
+          elements.textEditorDialog.close();
+          renderTimeline();
+          observeReveals();
+          toast("新的时光节点已经加入。");
+        }
+      }
+
+      function askConfirm(title, message, confirmText = "确认") {
+        elements.confirmTitle.textContent = title;
+        elements.confirmMessage.textContent = message;
+        elements.confirmOk.textContent = confirmText;
+        elements.confirmDialog.showModal();
+        return new Promise((resolve) => {
+          const onClose = () => {
+            elements.confirmDialog.removeEventListener("close", onClose);
+            resolve(elements.confirmDialog.returnValue === "confirm");
+          };
+          elements.confirmDialog.addEventListener("close", onClose);
+        });
+      }
+
+      function openUploadPicker() {
+        try {
+          if (typeof elements.photoInput.showPicker === "function") {
+            elements.photoInput.showPicker();
+          } else {
+            elements.photoInput.click();
+          }
+        } catch (error) {
+          elements.photoInput.click();
+        }
+      }
+
+      function readImageDimensions(file) {
+        return new Promise((resolve, reject) => {
+          const url = URL.createObjectURL(file);
+          const image = new Image();
+          image.onload = () => {
+            const dimensions = { width: image.naturalWidth, height: image.naturalHeight };
+            URL.revokeObjectURL(url);
+            resolve(dimensions);
+          };
+          image.onerror = () => {
+            URL.revokeObjectURL(url);
+            reject(new Error("图片格式无法读取"));
+          };
+          image.src = url;
+        });
+      }
+
+      async function createThumbnail(file) {
+        const url = URL.createObjectURL(file);
+        try {
+          const image = await new Promise((resolve, reject) => {
+            const img = new Image();
+            img.onload = () => resolve(img);
+            img.onerror = () => reject(new Error("图片格式无法读取"));
+            img.src = url;
+          });
+          const maxSide = 820;
+          const scale = Math.min(1, maxSide / Math.max(image.naturalWidth, image.naturalHeight));
+          const canvas = document.createElement("canvas");
+          canvas.width = Math.max(1, Math.round(image.naturalWidth * scale));
+          canvas.height = Math.max(1, Math.round(image.naturalHeight * scale));
+          const context = canvas.getContext("2d", { alpha: false });
+          context.fillStyle = "#f8f1e7";
+          context.fillRect(0, 0, canvas.width, canvas.height);
+          context.imageSmoothingQuality = "high";
+          context.drawImage(image, 0, 0, canvas.width, canvas.height);
+          const thumb = await new Promise((resolve) => {
+            canvas.toBlob(resolve, "image/jpeg", 0.82);
+          });
+          return {
+            thumb: thumb || file,
+            width: image.naturalWidth,
+            height: image.naturalHeight
+          };
+        } finally {
+          URL.revokeObjectURL(url);
+        }
+      }
+
+      function fileDate(file) {
+        const fromFile = new Date(file.lastModified);
+        const date = Number.isNaN(fromFile.getTime()) ? new Date() : fromFile;
+        return toDateInputValue(date);
+      }
+
+      function cleanFileName(name) {
+        return String(name || "我们的回忆")
+          .replace(/\.[^.]+$/, "")
+          .replaceAll("_", " ")
+          .replaceAll("-", " ")
+          .trim()
+          .slice(0, 80) || "我们的回忆";
+      }
+
+      async function handleFiles(fileList) {
+        const files = Array.from(fileList || []);
+        if (!files.length) {
+          toast("没有收到文件，请重新选择照片。", true);
+          return;
+        }
+        elements.uploadStatus.hidden = false;
+        elements.uploadBar.style.width = "0%";
+        let success = 0;
+        let failed = 0;
+        let cloudUploaded = 0;
+        let cloudError = null;
+        const errors = [];
+        for (let index = 0; index < files.length; index += 1) {
+          const file = files[index];
+          elements.uploadStatusText.textContent = `正在收好第 ${index + 1} 张回忆…`;
+          elements.uploadStatusCount.textContent = `${index + 1} / ${files.length}`;
+          elements.uploadBar.style.width = `${Math.round(((index + 0.4) / files.length) * 100)}%`;
+          try {
+            const extension = file.name.split(".").pop().toLowerCase();
+            if (["heic", "heif"].includes(extension) || /heic|heif/i.test(file.type)) {
+              throw new Error("HEIC 照片浏览器无法直接解码，请先在手机或相册里导出为 JPG");
+            }
+            if (!file.type.startsWith("image/") && !/\.(jpe?g|png|webp|gif|bmp|avif)$/i.test(file.name)) {
+              throw new Error("不是可识别的图片格式，请选择 JPG、PNG 或 WebP");
+            }
+            if (file.size > 45 * 1024 * 1024) {
+              throw new Error("照片超过 45MB，请先压缩后再上传");
+            }
+            const dimensions = await readImageDimensions(file);
+            const thumbData = await createThumbnail(file);
+            const now = new Date().toISOString();
+            const record = {
+              id: (crypto.randomUUID && crypto.randomUUID()) || `photo-${Date.now()}-${Math.random().toString(16).slice(2)}`,
+              name: file.name || "memory.jpg",
+              image: file,
+              thumb: thumbData.thumb,
+              width: dimensions.width || thumbData.width,
+              height: dimensions.height || thumbData.height,
+              caption: cleanFileName(file.name),
+              date: fileDate(file),
+              favorite: false,
+              createdAt: now,
+              updatedAt: now
+            };
+            await savePhoto(record);
+            state.photos.unshift(record);
+            success += 1;
+            if (state.cloudToken && !cloudError) {
+              elements.uploadStatusText.textContent = `正在同步第 ${index + 1} 张到在线相册…`;
+              try {
+                await uploadPhotoAssets(record);
+                await savePhoto(record);
+                cloudUploaded += 1;
+              } catch (error) {
+                cloudError = error;
+              }
+            }
+          } catch (error) {
+            failed += 1;
+            errors.push(`${file.name || "未命名文件"}：${error.message}`);
+            console.warn("Photo upload failed:", error);
+          }
+          elements.uploadBar.style.width = `${Math.round(((index + 1) / files.length) * 100)}%`;
+        }
+        if (cloudUploaded > 0) {
+          elements.uploadStatusText.textContent = "照片已上传，正在更新分享链接…";
+          await syncCloudManifest();
+        }
+        window.setTimeout(() => {
+          elements.uploadStatus.hidden = true;
+        }, 500);
+        renderAll();
+        observeReveals();
+        if (success) {
+          playChime();
+          toast(`已经收好 ${success} 张回忆${cloudUploaded ? `，其中 ${cloudUploaded} 张已同步到分享链接` : ""}。`);
+          if (cloudError) {
+            toast(`照片已保存在本机，但云端同步失败：${cloudError.message}`, true, 7000);
+          }
+          document.getElementById("gallery").scrollIntoView({ behavior: "smooth", block: "start" });
+        } else {
+          toast(errors[0] || "照片没能读取，请换成 JPG 或 PNG 再试。", true, 7000);
+        }
+        if (failed && success) {
+          toast(`另有 ${failed} 张未能读取：${errors[0]}`, true, 7000);
+        }
+      }
+
+      function updateLightboxChrome() {
+        const photo = currentLightboxPhoto();
+        if (!photo) return;
+        const total = state.lightboxIds.length;
+        elements.lightboxCounter.textContent = `${pad2(state.lightboxIndex + 1)} / ${pad2(total)}`;
+        elements.lightboxTitle.textContent = photo.caption || "这一刻";
+        elements.lightboxFavorite.classList.toggle("is-favorite", Boolean(photo.favorite));
+        elements.lightboxFavorite.querySelector("span").textContent = photo.favorite ? "已珍藏" : "珍藏";
+        elements.lightboxFavorite.setAttribute("aria-pressed", photo.favorite ? "true" : "false");
+        elements.photoMeta.textContent = `${photo.width || "?"} × ${photo.height || "?"} · ${photo.remoteUrl ? "在线相册" : "仅保存在本地"}`;
+        elements.prevPhoto.disabled = total <= 1;
+        elements.nextPhoto.disabled = total <= 1;
+        elements.prevPhoto.style.opacity = total <= 1 ? "0.35" : "";
+        elements.nextPhoto.style.opacity = total <= 1 ? "0.35" : "";
+        const downloadUrl = getObjectUrl(photo, false);
+        elements.downloadPhoto.href = downloadUrl;
+        elements.downloadPhoto.download = photo.name || `memory-${photo.id}.jpg`;
+      }
+
+      function currentLightboxPhoto() {
+        const id = state.lightboxIds[state.lightboxIndex];
+        return state.photos.find((photo) => photo.id === id) || null;
+      }
+
+      function showLightboxPhoto({ animate = true } = {}) {
+        const photo = currentLightboxPhoto();
+        if (!photo) return;
+        const apply = () => {
+          elements.lightboxImage.src = getObjectUrl(photo, false);
+          elements.lightboxImage.alt = photo.caption || photo.name || "我们的回忆照片";
+          elements.photoCaptionInput.value = photo.caption || "";
+          elements.photoDateInput.value = photo.date || "";
+          elements.photoSaveStatus.textContent = "自动保存";
+          elements.lightboxImage.classList.remove("is-switching");
+          updateLightboxChrome();
+        };
+        if (animate) {
+          elements.lightboxImage.classList.add("is-switching");
+          window.setTimeout(apply, 150);
+        } else {
+          apply();
+        }
+        restartSlideshowTimer();
+      }
+
+      function openLightbox(id) {
+        const visible = getVisiblePhotos().map((photo) => photo.id);
+        state.lightboxIds = visible.includes(id) ? visible : state.photos.map((photo) => photo.id);
+        state.lightboxIndex = Math.max(0, state.lightboxIds.indexOf(id));
+        elements.lightbox.showModal();
+        showLightboxPhoto({ animate: false });
+      }
+
+      function moveLightbox(direction) {
+        if (state.lightboxIds.length < 2) return;
+        state.lightboxIndex = (state.lightboxIndex + direction + state.lightboxIds.length) % state.lightboxIds.length;
+        showLightboxPhoto();
+      }
+
+      function closeLightbox() {
+        flushPhotoFields();
+        stopSlideshow();
+        elements.lightbox.close();
+      }
+
+      function schedulePhotoSave() {
+        window.clearTimeout(state.saveTimer);
+        elements.photoSaveStatus.textContent = "正在保存…";
+        state.saveTimer = window.setTimeout(async () => {
+          const photo = currentLightboxPhoto();
+          if (!photo) return;
+          const previousDate = photo.date;
+          photo.caption = elements.photoCaptionInput.value.trim().slice(0, MAX_CAPTION);
+          if (parseDateInput(elements.photoDateInput.value)) {
+            photo.date = elements.photoDateInput.value;
+          }
+          photo.updatedAt = new Date().toISOString();
+          try {
+            await savePhoto(photo);
+            elements.photoSaveStatus.textContent = "已保存";
+            elements.lightboxTitle.textContent = photo.caption || "这一刻";
+            if (photo.date !== previousDate) {
+              renderGallery();
+            } else {
+              updatePhotoPresentation(photo);
+            }
+            scheduleCloudSync();
+          } catch (error) {
+            elements.photoSaveStatus.textContent = "保存失败";
+          }
+        }, 600);
+      }
+
+      function flushPhotoFields() {
+        if (!elements.lightbox.open) return;
+        window.clearTimeout(state.saveTimer);
+        const photo = currentLightboxPhoto();
+        if (!photo) return;
+        const newCaption = elements.photoCaptionInput.value.trim().slice(0, MAX_CAPTION);
+        const newDate = parseDateInput(elements.photoDateInput.value) ? elements.photoDateInput.value : photo.date;
+        if (newCaption !== photo.caption || newDate !== photo.date) {
+          const dateChanged = newDate !== photo.date;
+          photo.caption = newCaption;
+          photo.date = newDate;
+          photo.updatedAt = new Date().toISOString();
+          savePhoto(photo).then(() => {
+            if (dateChanged) {
+              renderGallery();
+            } else {
+              updatePhotoPresentation(photo);
+            }
+            scheduleCloudSync();
+          }).catch(() => {});
+        }
+      }
+
+      async function deleteCurrentPhoto() {
+        const photo = currentLightboxPhoto();
+        if (!photo) return;
+        const confirmed = await askConfirm(
+          "删除这张照片？",
+          "照片会从这本相册里永久移除，无法在页面内撤销。浏览器中的其他照片不会受影响。",
+          "删除"
+        );
+        if (!confirmed) return;
+        if (!state.dbUnavailable) {
+          try {
+            if (!state.db) state.db = await openDB();
+            await dbDelete(state.db, photo.id);
+          } catch (error) {
+            toast("本地照片删除失败，请稍后重试。", true);
+          }
+        }
+        if (state.cloudToken && photo.remoteUrl) {
+          try {
+            await deleteCloudPhotoAssets(photo);
+          } catch (error) {
+            toast(`云端照片文件未能删除：${error.message}`, true, 6000);
+          }
+        }
+        revokeObjectUrls(photo.id);
+        state.photos = state.photos.filter((item) => item.id !== photo.id);
+        state.lightboxIds = state.lightboxIds.filter((id) => id !== photo.id);
+        if (!state.lightboxIds.length) {
+          stopSlideshow();
+          elements.lightbox.close();
+        } else {
+          state.lightboxIndex = Math.min(state.lightboxIndex, state.lightboxIds.length - 1);
+          showLightboxPhoto({ animate: false });
+          restartSlideshowTimer();
+        }
+        renderAll();
+        scheduleCloudSync();
+        toast("这张照片已从相册中移除。");
+      }
+
+      function startSlideshow() {
+        if (state.slideshowTimer) {
+          stopSlideshow();
+          return;
+        }
+        if (state.lightboxIds.length < 2) {
+          toast("至少要有两张照片，才能自动播放。", true);
+          return;
+        }
+        elements.slideshowButton.classList.add("is-active");
+        elements.slideshowButton.querySelector("span").textContent = "停止播放";
+        elements.slideProgress.hidden = false;
+        runSlideshowStep();
+      }
+
+      function runSlideshowStep() {
+        stopSlideshowTimerOnly();
+        const duration = 4800;
+        const started = performance.now();
+        elements.slideProgressBar.style.transition = "none";
+        elements.slideProgressBar.style.width = "0%";
+        requestAnimationFrame(() => {
+          elements.slideProgressBar.style.transition = `width ${duration}ms linear`;
+          elements.slideProgressBar.style.width = "100%";
+        });
+        state.slideshowTimer = window.setTimeout(() => {
+          moveLightbox(1);
+          if (state.lightboxIds.length > 1) runSlideshowStep();
+        }, duration);
+        state.slideProgressTimer = started;
+      }
+
+      function stopSlideshowTimerOnly() {
+        window.clearTimeout(state.slideshowTimer);
+        state.slideshowTimer = null;
+        state.slideProgressTimer = null;
+      }
+
+      function stopSlideshow() {
+        stopSlideshowTimerOnly();
+        elements.slideshowButton.classList.remove("is-active");
+        elements.slideshowButton.querySelector("span").textContent = "自动播放";
+        elements.slideProgress.hidden = true;
+        elements.slideProgressBar.style.width = "0%";
+      }
+
+      function restartSlideshowTimer() {
+        if (state.slideshowTimer) runSlideshowStep();
+      }
+
+      function goToRandomPhoto() {
+        if (!state.photos.length) {
+          toast("先放几张照片进来，才能翻开回忆盲盒。", true);
+          openUploadPicker();
+          return;
+        }
+        const random = state.photos[Math.floor(Math.random() * state.photos.length)];
+        openLightbox(random.id);
+      }
+
+      function initAudio() {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContext) {
+          toast("当前浏览器不支持氛围音乐。", true);
+          return null;
+        }
+        if (state.audio) return state.audio;
+        const context = new AudioContext();
+        const master = context.createGain();
+        master.gain.value = 0.72;
+        const filter = context.createBiquadFilter();
+        filter.type = "lowpass";
+        filter.frequency.value = 1600;
+        master.connect(filter);
+        filter.connect(context.destination);
+        state.audio = { context, master, timer: null, chordIndex: 0 };
+        return state.audio;
+      }
+
+      function scheduleAmbient() {
+        const audio = state.audio;
+        if (!audio) return;
+        const chords = [
+          [261.63, 329.63, 392.0, 493.88],
+          [220.0, 261.63, 329.63, 392.0],
+          [174.61, 220.0, 261.63, 329.63],
+          [196.0, 246.94, 293.66, 392.0]
+        ];
+        const notes = chords[audio.chordIndex % chords.length];
+        const now = audio.context.currentTime + 0.03;
+        notes.forEach((frequency, index) => {
+          const oscillator = audio.context.createOscillator();
+          const gain = audio.context.createGain();
+          oscillator.type = index % 2 ? "sine" : "triangle";
+          oscillator.frequency.value = frequency * (index === 3 ? 2 : 1);
+          oscillator.detune.value = (index - 1.5) * 2;
+          gain.gain.setValueAtTime(0.0001, now);
+          gain.gain.exponentialRampToValueAtTime(0.022 - index * 0.003, now + 0.65 + index * 0.1);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 4.2 + index * 0.25);
+          oscillator.connect(gain);
+          gain.connect(audio.master);
+          oscillator.start(now);
+          oscillator.stop(now + 5);
+        });
+        audio.chordIndex += 1;
+        audio.timer = window.setTimeout(scheduleAmbient, 4600);
+      }
+
+      async function toggleMusic() {
+        const audio = initAudio();
+        if (!audio) return;
+        if (elements.musicButton.classList.contains("is-playing")) {
+          window.clearTimeout(audio.timer);
+          audio.timer = null;
+          elements.musicButton.classList.remove("is-playing");
+          elements.musicButton.setAttribute("aria-pressed", "false");
+          elements.musicButton.setAttribute("aria-label", "打开氛围音乐");
+          await audio.context.suspend();
+          toast("氛围音乐已暂停。");
+          return;
+        }
+        await audio.context.resume();
+        elements.musicButton.classList.add("is-playing");
+        elements.musicButton.setAttribute("aria-pressed", "true");
+        elements.musicButton.setAttribute("aria-label", "暂停氛围音乐");
+        scheduleAmbient();
+        toast("一段很轻的氛围音乐，陪你慢慢翻照片。");
+      }
+
+      function playChime() {
+        const audio = state.audio;
+        if (!audio || !elements.musicButton.classList.contains("is-playing")) return;
+        const context = audio.context;
+        const now = context.currentTime + 0.02;
+        [659.25, 783.99, 1046.5].forEach((frequency, index) => {
+          const oscillator = context.createOscillator();
+          const gain = context.createGain();
+          oscillator.type = "sine";
+          oscillator.frequency.value = frequency;
+          gain.gain.setValueAtTime(0.0001, now + index * 0.12);
+          gain.gain.exponentialRampToValueAtTime(0.045, now + index * 0.12 + 0.02);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + index * 0.12 + 1.1);
+          oscillator.connect(gain);
+          gain.connect(audio.master);
+          oscillator.start(now + index * 0.12);
+          oscillator.stop(now + index * 0.12 + 1.3);
+        });
+      }
+
+      function setEditorModeUI() {
+        const isMilestone = state.editorMode === "milestone";
+        elements.editorTitleField.hidden = !isMilestone;
+        elements.editorDateField.hidden = !isMilestone;
+        elements.editorTextLabel.textContent = isMilestone ? "这一天的故事" : "信的内容";
+      }
+
+      function closeDialogFromButton(button) {
+        const dialog = button.closest("dialog");
+        if (dialog) dialog.close();
+      }
+
+      function initEvents() {
+        document.addEventListener("click", (event) => {
+          const heartButton = event.target.closest("[data-heart-open]");
+          if (heartButton) {
+            openLightbox(heartButton.dataset.heartOpen);
+            return;
+          }
+          const uploadButton = event.target.closest("[data-open-upload]");
+          if (uploadButton) {
+            openUploadPicker();
+            return;
+          }
+          const closeButton = event.target.closest("[data-close-dialog]");
+          if (closeButton) {
+            closeDialogFromButton(closeButton);
+            return;
+          }
+          const resetFilter = event.target.closest("[data-reset-filter]");
+          if (resetFilter) {
+            setFilter("all");
+            return;
+          }
+          const filterButton = event.target.closest("[data-filter]");
+          if (filterButton) {
+            setFilter(filterButton.dataset.filter);
+            return;
+          }
+          const viewButton = event.target.closest("[data-view]");
+          if (viewButton) {
+            setView(viewButton.dataset.view);
+            return;
+          }
+        });
+
+        elements.photoInput.addEventListener("change", async (event) => {
+          const files = Array.from(event.target.files || []);
+          event.target.value = "";
+          if (files.length) await handleFiles(files);
+        });
+
+        elements.sortSelect.addEventListener("change", () => {
+          state.sort = elements.sortSelect.value;
+          state.galleryLimit = GALLERY_PAGE_SIZE;
+          renderGallery();
+        });
+
+        elements.loadMoreButton.addEventListener("click", () => {
+          state.galleryLimit += GALLERY_PAGE_SIZE;
+          renderGallery();
+        });
+
+        elements.galleryGrid.addEventListener("click", (event) => {
+          const card = event.target.closest(".photo-card");
+          if (!card) return;
+          const action = event.target.closest("[data-action]");
+          if (!action) return;
+          if (action.dataset.action === "favorite") {
+            toggleFavorite(card.dataset.id, event);
+          } else if (action.dataset.action === "open") {
+            openLightbox(card.dataset.id);
+          }
+        });
+
+        document.getElementById("randomButton").addEventListener("click", goToRandomPhoto);
+        document.getElementById("settingsButton").addEventListener("click", openSettings);
+        elements.settingsForm.addEventListener("submit", saveSettings);
+        elements.publishCloudButton.addEventListener("click", publishAllToCloud);
+        elements.clearCloudButton.addEventListener("click", () => {
+          persistCloudToken("");
+          elements.githubTokenInput.value = "";
+          elements.githubTokenInput.placeholder = "填写后保存，令牌只留在这台电脑";
+          toast("已断开云端同步。公开链接上的相册不会被删除。");
+        });
+        document.getElementById("editLetterButton").addEventListener("click", openLetterEditor);
+        elements.toggleLetterButton.addEventListener("click", () => toggleLetter());
+        elements.textEditorForm.addEventListener("submit", saveTextEditor);
+        elements.musicButton.addEventListener("click", toggleMusic);
+
+        elements.timelineTrack.addEventListener("click", async (event) => {
+          const deleteButton = event.target.closest("[data-delete-milestone]");
+          if (!deleteButton) return;
+          event.stopPropagation();
+          await deleteCustomMilestone(deleteButton.dataset.deleteMilestone);
+        });
+
+        elements.lightboxClose.addEventListener("click", closeLightbox);
+        elements.prevPhoto.addEventListener("click", () => moveLightbox(-1));
+        elements.nextPhoto.addEventListener("click", () => moveLightbox(1));
+        elements.lightboxFavorite.addEventListener("click", (event) => {
+          const photo = currentLightboxPhoto();
+          if (photo) toggleFavorite(photo.id, event);
+        });
+        elements.slideshowButton.addEventListener("click", startSlideshow);
+        elements.deletePhotoButton.addEventListener("click", deleteCurrentPhoto);
+        elements.photoCaptionInput.addEventListener("input", schedulePhotoSave);
+        elements.photoDateInput.addEventListener("change", schedulePhotoSave);
+        elements.lightbox.addEventListener("close", () => {
+          flushPhotoFields();
+          stopSlideshow();
+        });
+        elements.lightbox.addEventListener("click", (event) => {
+          if (event.target === elements.lightbox) closeLightbox();
+        });
+
+        elements.confirmDialog.addEventListener("click", (event) => {
+          if (event.target.closest("[data-confirm-ok]")) {
+            elements.confirmDialog.close("confirm");
+          } else if (event.target.closest("[data-confirm-cancel]") || event.target.closest("[data-close-dialog]")) {
+            elements.confirmDialog.close("cancel");
+          }
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (!event.target.matches('label[for="photoInput"]')) return;
+          if (event.key !== "Enter" && event.key !== " ") return;
+          event.preventDefault();
+          openUploadPicker();
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (!elements.lightbox.open) return;
+          if (event.key === "ArrowLeft") {
+            event.preventDefault();
+            moveLightbox(-1);
+          } else if (event.key === "ArrowRight") {
+            event.preventDefault();
+            moveLightbox(1);
+          } else if (event.key === " ") {
+            event.preventDefault();
+            startSlideshow();
+          }
+        });
+
+        let dragDepth = 0;
+        window.addEventListener("dragenter", (event) => {
+          if (!event.dataTransfer || !Array.from(event.dataTransfer.types || []).includes("Files")) return;
+          event.preventDefault();
+          dragDepth += 1;
+          elements.dropOverlay.hidden = false;
+        });
+        window.addEventListener("dragover", (event) => {
+          if (event.dataTransfer && Array.from(event.dataTransfer.types || []).includes("Files")) {
+            event.preventDefault();
+          }
+        });
+        window.addEventListener("dragleave", (event) => {
+          if (!event.dataTransfer) return;
+          dragDepth = Math.max(0, dragDepth - 1);
+          if (dragDepth === 0) elements.dropOverlay.hidden = true;
+        });
+        window.addEventListener("drop", async (event) => {
+          if (!event.dataTransfer) return;
+          event.preventDefault();
+          dragDepth = 0;
+          elements.dropOverlay.hidden = true;
+          const files = event.dataTransfer.files;
+          if (files && files.length) await handleFiles(files);
+        });
+
+        window.addEventListener("storage", (event) => {
+          if (event.key === SETTINGS_KEY) {
+            state.settings = loadSettings();
+            updateHeaderAndDates();
+            renderTimeline();
+          }
+          if (event.key === LETTER_KEY) {
+            elements.letterBody.textContent = loadLetter();
+          }
+          if (event.key === MILESTONES_KEY) {
+            state.customMilestones = loadCustomMilestones();
+            renderTimeline();
+          }
+        });
+
+        elements.textEditorDialog.addEventListener("close", () => {
+          state.editorMode = null;
+        });
+      }
+
+      async function deleteCustomMilestone(id) {
+        const item = state.customMilestones.find((milestone) => milestone.id === id);
+        if (!item) return;
+        const confirmed = await askConfirm("删除这个节点？", `“${item.title}”会从时间线中移除。`, "删除");
+        if (!confirmed) return;
+        state.customMilestones = state.customMilestones.filter((milestone) => milestone.id !== id);
+        saveCustomMilestones();
+        renderTimeline();
+        toast("这个时光节点已移除。");
+      }
+
+      function initLiveClock() {
+        updateTimeDisplay();
+        window.setInterval(updateTimeDisplay, 1000);
+      }
+
+      function init() {
+        initEvents();
+        observeReveals();
+        initData().then(() => {
+          observeReveals();
+          initLiveClock();
+        });
+      }
+
+      init();
+    })();
+  </script>
+
+
+</body></html>
