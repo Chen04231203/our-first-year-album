@@ -3496,11 +3496,11 @@
         <div class="hero-counter">
           <div class="counter-number">
             <span>DAY</span>
-            <strong id="heroDays" data-value="365">305</strong>
+            <strong id="heroDays">365</strong>
           </div>
           <div class="counter-detail">
             <strong>我们一起走过</strong>
-            <span id="liveDuration">365 天 13:52:22</span>
+            <span id="liveDuration">365 天 13:59:42</span>
           </div>
         </div>
       </div>
@@ -4627,7 +4627,7 @@
           elements.liveDuration.textContent = `还有 ${daysBetween(parts.now, parts.start)} 天开始`;
           elements.statDays.textContent = "故事即将开始";
         } else {
-          animateNumber(elements.heroDays, parts.days);
+          elements.heroDays.textContent = String(parts.days);
           elements.liveDuration.textContent = `${parts.days} 天 ${pad2(parts.hours)}:${pad2(parts.minutes)}:${pad2(parts.seconds)}`;
           elements.statDays.textContent = `${parts.days} 天`;
         }
