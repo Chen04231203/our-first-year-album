@@ -3496,11 +3496,11 @@
         <div class="hero-counter">
           <div class="counter-number">
             <span>DAY</span>
-            <strong id="heroDays" data-value="365">365</strong>
+            <strong id="heroDays" data-value="365">305</strong>
           </div>
           <div class="counter-detail">
             <strong>我们一起走过</strong>
-            <span id="liveDuration">365 天 13:45:23</span>
+            <span id="liveDuration">365 天 13:52:22</span>
           </div>
         </div>
       </div>
@@ -3525,7 +3525,7 @@
           </svg>
           <div class="heart-photos" id="heartPhotos">
             <button class="heart-photo" type="button" data-heart-open="76901b49-6244-435d-9e68-c182fecd5d43" style="--x:50%;--y:54%;--w:25%;--r:2deg;--z:8" aria-label="查看照片：1784215711879">
-              <span class="heart-photo-image"><img src="https://raw.githubusercontent.com/Chen04231203/our-first-year-album/refs/heads/main/photos/76901b49-6244-435d-9e68-c182fecd5d43-thumb.jpg" alt="1784215711879" loading="eager" decoding="async"></span>
+              <span class="heart-photo-image"><img src="https://chen04231203.github.io/our-first-year-album/photos/76901b49-6244-435d-9e68-c182fecd5d43-thumb.jpg" alt="1784215711879" loading="eager" decoding="async"></span>
               <span class="heart-photo-caption">1784215711879</span>
             </button>
           
@@ -3661,7 +3661,7 @@
       <div id="galleryArea" class="reveal">
         <div class="gallery masonry" id="galleryGrid" aria-live="polite"><article class="photo-card reveal" data-id="76901b49-6244-435d-9e68-c182fecd5d43" style="--tilt: -0.8deg;">
             <button class="photo-open" type="button" data-action="open" aria-label="查看照片：1784215711879">
-              <img src="https://raw.githubusercontent.com/Chen04231203/our-first-year-album/refs/heads/main/photos/76901b49-6244-435d-9e68-c182fecd5d43-thumb.jpg" alt="1784215711879" loading="lazy" decoding="async" style="aspect-ratio:0.75;object-fit:cover">
+              <img src="https://chen04231203.github.io/our-first-year-album/photos/76901b49-6244-435d-9e68-c182fecd5d43-thumb.jpg" alt="1784215711879" loading="lazy" decoding="async" style="aspect-ratio:0.75;object-fit:cover">
             </button>
             <button class="card-favorite " type="button" data-action="favorite" aria-label="珍藏这张照片" aria-pressed="false">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"></path></svg>
@@ -3990,7 +3990,7 @@
       const CLOUD_MANIFEST_PATH = "album-data.json";
       const CLOUD_API_BASE = `https://api.github.com/repos/${CLOUD_REPO_OWNER}/${CLOUD_REPO_NAME}/contents`;
       const CLOUD_RAW_BASE = `https://raw.githubusercontent.com/${CLOUD_REPO_OWNER}/${CLOUD_REPO_NAME}/refs/heads/${CLOUD_BRANCH}`;
-      const CLOUD_RAW_PHOTO_BASE = `${CLOUD_RAW_BASE}/photos`;
+      const CLOUD_SITE_BASE = `https://${CLOUD_REPO_OWNER.toLowerCase()}.github.io/${CLOUD_REPO_NAME}/`;
       const MAX_CAPTION = 240;
       const MAX_LETTER = 3000;
       const ONE_DAY = 86400000;
@@ -4301,16 +4301,8 @@
       function normalizeRemotePhoto(photo) {
         if (!photo || !photo.id) return null;
         const id = String(photo.id);
-        const defaultRemote = `${CLOUD_RAW_PHOTO_BASE}/${encodeURIComponent(id)}.jpg`;
-        const defaultThumb = `${CLOUD_RAW_PHOTO_BASE}/${encodeURIComponent(id)}-thumb.jpg`;
-        let remoteUrl = defaultRemote;
-        let thumbUrl = defaultThumb;
-        try {
-          remoteUrl = new URL(photo.remoteUrl || defaultRemote, `${CLOUD_RAW_BASE}/`).href;
-          thumbUrl = new URL(photo.thumbUrl || photo.remoteUrl || defaultThumb, `${CLOUD_RAW_BASE}/`).href;
-        } catch (error) {
-          // Keep the constructed raw URLs if an old manifest contains an invalid URL.
-        }
+        const remoteUrl = new URL(`photos/${encodeURIComponent(id)}.jpg`, CLOUD_SITE_BASE).href;
+        const thumbUrl = new URL(`photos/${encodeURIComponent(id)}-thumb.jpg`, CLOUD_SITE_BASE).href;
         return {
           id,
           name: String(photo.name || "memory.jpg").slice(0, 160),
@@ -4519,8 +4511,8 @@
         const thumbBase64 = await blobToBase64(thumbBlob);
         await uploadRepositoryFile(`photos/${photo.id}.jpg`, fullBase64, `Add photo ${photo.id}`);
         await uploadRepositoryFile(`photos/${photo.id}-thumb.jpg`, thumbBase64, `Add thumbnail ${photo.id}`);
-        photo.remoteUrl = `${CLOUD_RAW_PHOTO_BASE}/${encodeURIComponent(photo.id)}.jpg`;
-        photo.thumbUrl = `${CLOUD_RAW_PHOTO_BASE}/${encodeURIComponent(photo.id)}-thumb.jpg`;
+        photo.remoteUrl = new URL(`photos/${encodeURIComponent(photo.id)}.jpg`, CLOUD_SITE_BASE).href;
+        photo.thumbUrl = new URL(`photos/${encodeURIComponent(photo.id)}-thumb.jpg`, CLOUD_SITE_BASE).href;
         photo.cloudSynced = true;
         photo.updatedAt = new Date().toISOString();
         return true;
