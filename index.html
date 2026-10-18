@@ -3500,7 +3500,7 @@
           </div>
           <div class="counter-detail">
             <strong>我们一起走过</strong>
-            <span id="liveDuration">365 天 13:20:23</span>
+            <span id="liveDuration">365 天 13:45:23</span>
           </div>
         </div>
       </div>
@@ -3524,11 +3524,11 @@
             <path d="M310 574C280 548 66 415 66 238C66 132 190 92 258 158C286 184 301 212 310 238C319 212 334 184 362 158C430 92 554 132 554 238C554 415 340 548 310 574Z" fill="url(#heartGrain)"></path>
           </svg>
           <div class="heart-photos" id="heartPhotos">
-              <label class="heart-photo heart-photo-empty" for="photoInput" style="--x:50%;--y:54%;--w:25%;--r:2deg;--z:8" aria-label="上传照片，填满这个心形位置">
-                <span class="heart-photo-image ph-0"><span class="heart-empty-mark">♡</span></span>
-                <span class="heart-photo-caption">留一个位置给回忆</span>
-              </label>
-            
+            <button class="heart-photo" type="button" data-heart-open="76901b49-6244-435d-9e68-c182fecd5d43" style="--x:50%;--y:54%;--w:25%;--r:2deg;--z:8" aria-label="查看照片：1784215711879">
+              <span class="heart-photo-image"><img src="https://raw.githubusercontent.com/Chen04231203/our-first-year-album/refs/heads/main/photos/76901b49-6244-435d-9e68-c182fecd5d43-thumb.jpg" alt="1784215711879" loading="eager" decoding="async"></span>
+              <span class="heart-photo-caption">1784215711879</span>
+            </button>
+          
               <label class="heart-photo heart-photo-empty" for="photoInput" style="--x:39%;--y:34%;--w:24%;--r:4deg;--z:4" aria-label="上传照片，填满这个心形位置">
                 <span class="heart-photo-image ph-1"><span class="heart-empty-mark">♡</span></span>
                 <span class="heart-photo-caption">留一个位置给回忆</span>
@@ -3581,7 +3581,7 @@
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M12 16V4M7 9l5-5 5 5M5 20h14"></path>
             </svg>
-            <span id="heartStatus">上传照片，拼成我们的心</span>
+            <span id="heartStatus">已拼好 1 张 · 还可以放进更多回忆</span>
           </label>
           <div class="anniversary-seal" aria-hidden="true">
             <div>
@@ -3604,7 +3604,7 @@
         <span class="stat-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="15" rx="2"></rect><circle cx="8.5" cy="10" r="1.4"></circle><path d="m4 17 5-5 4 4 3-3 4 4"></path></svg>
         </span>
-        <div class="stat-copy"><strong id="statPhotos">0 张</strong><span>被好好收藏的瞬间</span></div>
+        <div class="stat-copy"><strong id="statPhotos">1 张</strong><span>被好好收藏的瞬间</span></div>
       </div>
       <div class="stat">
         <span class="stat-icon" aria-hidden="true">
@@ -3633,9 +3633,9 @@
 
       <div class="gallery-toolbar reveal">
         <div class="filter-group" role="group" aria-label="筛选照片">
-          <button class="filter-chip is-active" type="button" data-filter="all">全部 <span id="countAll">0</span></button>
+          <button class="filter-chip is-active" type="button" data-filter="all">全部 <span id="countAll">1</span></button>
           <button class="filter-chip" type="button" data-filter="favorite">珍藏 <span id="countFavorite">0</span></button>
-          <button class="filter-chip" type="button" data-filter="recent">最近上传 <span id="countRecent">0</span></button>
+          <button class="filter-chip" type="button" data-filter="recent">最近上传 <span id="countRecent">1</span></button>
         </div>
         <div class="gallery-tools">
           <select class="tool-select" id="sortSelect" aria-label="照片排序">
@@ -3659,9 +3659,20 @@
       </div>
 
       <div id="galleryArea" class="reveal">
-        <div class="gallery masonry" id="galleryGrid" aria-live="polite" hidden=""></div>
+        <div class="gallery masonry" id="galleryGrid" aria-live="polite"><article class="photo-card reveal" data-id="76901b49-6244-435d-9e68-c182fecd5d43" style="--tilt: -0.8deg;">
+            <button class="photo-open" type="button" data-action="open" aria-label="查看照片：1784215711879">
+              <img src="https://raw.githubusercontent.com/Chen04231203/our-first-year-album/refs/heads/main/photos/76901b49-6244-435d-9e68-c182fecd5d43-thumb.jpg" alt="1784215711879" loading="lazy" decoding="async" style="aspect-ratio:0.75;object-fit:cover">
+            </button>
+            <button class="card-favorite " type="button" data-action="favorite" aria-label="珍藏这张照片" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"></path></svg>
+            </button>
+            <div class="photo-caption-row">
+              <p class="photo-caption ">1784215711879</p>
+              <time class="photo-date" datetime="2026-10-11">2026.10.11</time>
+            </div>
+          </article></div>
         <button class="load-more" id="loadMoreButton" type="button" hidden=""></button>
-        <div class="empty-gallery" id="emptyGallery">
+        <div class="empty-gallery" id="emptyGallery" hidden="">
           <div class="empty-content">
             <div class="empty-illustration" aria-hidden="true">
               <span class="empty-frame"><span class="empty-frame-inner"></span></span>
@@ -3676,7 +3687,7 @@
             </label>
           </div>
         </div>
-        <div class="filtered-empty" id="filteredEmpty">
+        <div class="filtered-empty" id="filteredEmpty" hidden="">
           <div>
             <p id="filteredEmptyText">还没有收藏照片。</p>
             <button class="ghost-button" type="button" data-reset-filter="">看看全部回忆</button>
@@ -3824,7 +3835,7 @@
         <div class="cloud-panel">
           <div class="cloud-panel-head">
             <h3>在线同步</h3>
-            <span class="cloud-status" id="cloudStatus">未连接</span>
+            <span class="cloud-status" id="cloudStatus">在线只读</span>
           </div>
           <p>连接后，你上传的照片、文字和纪念日会同步到相册链接。对方打开链接就能看到，无需登录。</p>
           <div class="field">
@@ -4258,22 +4269,33 @@
       }
 
       async function fetchCloudAlbum() {
-        const sources = [new URL(CLOUD_MANIFEST_PATH, window.location.href).href];
+        const sources = [
+          new URL(CLOUD_MANIFEST_PATH, window.location.href).href,
+          `${CLOUD_RAW_BASE}/${CLOUD_MANIFEST_PATH}`
+        ];
+        let best = null;
+        let lastError = null;
         for (const source of sources) {
           try {
             const response = await fetch(`${source}?v=${Date.now()}`, {
               cache: "no-store",
               headers: { Accept: "application/json" }
             });
-            if (!response.ok) return null;
+            if (!response.ok) {
+              if (response.status !== 404) lastError = new Error(`云端相册读取失败（${response.status}）`);
+              continue;
+            }
             const data = await response.json();
-            if (!data || data.version !== 1 || !Array.isArray(data.photos)) return null;
-            return data;
+            if (!data || data.version !== 1 || !Array.isArray(data.photos)) continue;
+            if (!best || String(data.updatedAt || "") > String(best.updatedAt || "")) {
+              best = data;
+            }
           } catch (error) {
-            return null;
+            lastError = error;
           }
         }
-        return null;
+        if (!best && lastError) throw lastError;
+        return best;
       }
 
       function normalizeRemotePhoto(photo) {
