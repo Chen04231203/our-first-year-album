@@ -3489,11 +3489,11 @@
         <div class="hero-counter">
           <div class="counter-number">
             <span>DAY</span>
-            <strong id="heroDays" data-value="365">365</strong>
+            <strong id="heroDays" data-value="365">304</strong>
           </div>
           <div class="counter-detail">
             <strong>我们一起走过</strong>
-            <span id="liveDuration">365 天 13:16:14</span>
+            <span id="liveDuration">365 天 13:18:10</span>
           </div>
         </div>
       </div>
@@ -4250,15 +4250,33 @@
       }
 
       async function fetchCloudAlbum() {
-        const response = await fetch(`${CLOUD_RAW_MANIFEST_URL}?v=${Date.now()}`, {
-          cache: "no-store",
-          headers: { Accept: "application/json" }
-        });
-        if (response.status === 404) return null;
-        if (!response.ok) throw new Error(`云端相册读取失败（${response.status}）`);
-        const data = await response.json();
-        if (!data || data.version !== 1 || !Array.isArray(data.photos)) return null;
-        return data;
+        const sources = [
+          new URL(CLOUD_MANIFEST_PATH, window.location.href).href,
+          CLOUD_RAW_MANIFEST_URL
+        ];
+        let best = null;
+        let lastError = null;
+        for (const source of sources) {
+          try {
+            const response = await fetch(`${source}?v=${Date.now()}`, {
+              cache: "no-store",
+              headers: { Accept: "application/json" }
+            });
+            if (!response.ok) {
+              if (response.status !== 404) lastError = new Error(`云端相册读取失败（${response.status}）`);
+              continue;
+            }
+            const data = await response.json();
+            if (!data || data.version !== 1 || !Array.isArray(data.photos)) continue;
+            if (!best || String(data.updatedAt || "") > String(best.updatedAt || "")) {
+              best = data;
+            }
+          } catch (error) {
+            lastError = error;
+          }
+        }
+        if (!best && lastError) throw lastError;
+        return best;
       }
 
       function normalizeRemotePhoto(photo) {
