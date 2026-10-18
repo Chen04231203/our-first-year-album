@@ -2216,6 +2216,13 @@
       background: #fffdf8;
     }
 
+    .cloud-panel .cloud-token-help {
+      margin: 9px 0 0;
+      color: #8d746b;
+      font-size: 9px;
+      line-height: 1.65;
+    }
+
     .dialog-actions {
       display: flex;
       justify-content: flex-end;
@@ -3489,11 +3496,11 @@
         <div class="hero-counter">
           <div class="counter-number">
             <span>DAY</span>
-            <strong id="heroDays" data-value="365">304</strong>
+            <strong id="heroDays" data-value="365">365</strong>
           </div>
           <div class="counter-detail">
             <strong>我们一起走过</strong>
-            <span id="liveDuration">365 天 13:18:10</span>
+            <span id="liveDuration">365 天 13:20:23</span>
           </div>
         </div>
       </div>
@@ -3829,6 +3836,7 @@
             <button type="button" id="clearCloudButton">断开同步</button>
             <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer">创建令牌</a>
           </div>
+          <p class="cloud-token-help">创建时把仓库权限设为 Only select repositories → our-first-year-album，并在 Permissions → Contents 里选择 Read and write。</p>
         </div>
         <p class="field-hint">照片会同步到公开仓库，但网页已设置为搜索引擎不收录。访问链接的人仍然可以查看相册，请只上传愿意分享给对方的内容。</p>
         <div class="dialog-actions">
@@ -3971,7 +3979,6 @@
       const CLOUD_MANIFEST_PATH = "album-data.json";
       const CLOUD_API_BASE = `https://api.github.com/repos/${CLOUD_REPO_OWNER}/${CLOUD_REPO_NAME}/contents`;
       const CLOUD_RAW_BASE = `https://raw.githubusercontent.com/${CLOUD_REPO_OWNER}/${CLOUD_REPO_NAME}/refs/heads/${CLOUD_BRANCH}`;
-      const CLOUD_RAW_MANIFEST_URL = `${CLOUD_RAW_BASE}/${CLOUD_MANIFEST_PATH}`;
       const CLOUD_RAW_PHOTO_BASE = `${CLOUD_RAW_BASE}/photos`;
       const MAX_CAPTION = 240;
       const MAX_LETTER = 3000;
@@ -4017,6 +4024,7 @@
         cloudSyncing: false,
         cloudSyncPending: false,
         cloudLastSync: "",
+        cloudAlbumLoaded: false,
         letterOpen: false,
         editorMode: null,
         lightboxIds: [],
@@ -4238,7 +4246,7 @@
           return;
         }
         if (!connected) {
-          elements.cloudStatus.textContent = "未连接";
+          elements.cloudStatus.textContent = state.cloudAlbumLoaded ? "在线只读" : "未连接";
           return;
         }
         if (state.cloudLastSync) {
@@ -4250,33 +4258,22 @@
       }
 
       async function fetchCloudAlbum() {
-        const sources = [
-          new URL(CLOUD_MANIFEST_PATH, window.location.href).href,
-          CLOUD_RAW_MANIFEST_URL
-        ];
-        let best = null;
-        let lastError = null;
+        const sources = [new URL(CLOUD_MANIFEST_PATH, window.location.href).href];
         for (const source of sources) {
           try {
             const response = await fetch(`${source}?v=${Date.now()}`, {
               cache: "no-store",
               headers: { Accept: "application/json" }
             });
-            if (!response.ok) {
-              if (response.status !== 404) lastError = new Error(`云端相册读取失败（${response.status}）`);
-              continue;
-            }
+            if (!response.ok) return null;
             const data = await response.json();
-            if (!data || data.version !== 1 || !Array.isArray(data.photos)) continue;
-            if (!best || String(data.updatedAt || "") > String(best.updatedAt || "")) {
-              best = data;
-            }
+            if (!data || data.version !== 1 || !Array.isArray(data.photos)) return null;
+            return data;
           } catch (error) {
-            lastError = error;
+            return null;
           }
         }
-        if (!best && lastError) throw lastError;
-        return best;
+        return null;
       }
 
       function normalizeRemotePhoto(photo) {
@@ -4738,6 +4735,7 @@
         }
 
         if (cloudAlbum) {
+          state.cloudAlbumLoaded = true;
           const remotePhotos = applyCloudAlbum(cloudAlbum);
           if (state.cloudToken) {
             const localById = new Map(localPhotos.map((photo) => [photo.id, photo]));
